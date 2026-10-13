@@ -1,0 +1,8 @@
+{
+    "schema_versao": 1,
+    "id": "anao",
+    "nome": "Anão",
+    "descricao": "Resilientes, robustos e tradicionais.",
+    "tipo_criatura": "humanoide",
+    "tamanho": "medio"
+}

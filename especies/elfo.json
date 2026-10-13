@@ -1,0 +1,8 @@
+{
+    "schema_versao": 1,
+    "id": "elfo",
+    "nome": "Elfo",
+    "descricao": "Ágeis, perceptivos e com afinidade mágica.",
+    "tipo_criatura": ["humanoide"],
+    "tamanho": ["medio"]
+}

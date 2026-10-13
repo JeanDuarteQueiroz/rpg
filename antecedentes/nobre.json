@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "nobre",
+    "nome": "Nobre",
+    "bonus_atributos":{
+        "forca": 1,
+        "inteligencia": 1,
+        "carisma": 1
+    },
+    "proeficiencia_pericias":[
+        "História",
+        "Persuasão"
+    ]
+}

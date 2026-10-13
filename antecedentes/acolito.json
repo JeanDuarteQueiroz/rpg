@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "acolito",
+    "nome": "Acólito",
+    "bonus_atributos":{
+        "inteligencia": 1,
+        "sabedoria": 1,
+        "carisma": 1
+    },
+    "proeficiencia_pericias":[
+        "Intuição",
+        "Religião"
+    ]
+}

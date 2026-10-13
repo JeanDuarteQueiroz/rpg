@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "guia",
+    "nome": "Guia",
+    "bonus_atributos":{
+        "destreza": 1,
+        "constituicao": 1,
+        "sabedoria": 1
+    },
+    "proeficiencia_pericias":[
+        "Atletismo",
+        "Percepção"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "guarda",
+    "nome": "Guarda",
+    "bonus_atributos":{
+        "forca": 1,
+        "inteligencia": 1,
+        "sabedoria": 1
+    },
+    "proeficiencia_pericias":[
+        "Atletismo",
+        "Percepção"
+    ]
+}

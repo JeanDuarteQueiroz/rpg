@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "fazendeiro",
+    "nome": "Fazendeiro",
+    "bonus_atributos":{
+        "forca": 1,
+        "constituicao": 1,
+        "sabedoria": 1
+    },
+    "proeficiencia_pericias":[
+        "Lidar com Animais",
+        "Natureza"
+    ]
+}

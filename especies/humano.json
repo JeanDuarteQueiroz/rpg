@@ -1,0 +1,8 @@
+{
+    "schema_versao": 1,
+    "id": "humano",
+    "nome": "Humano",
+    "descricao": "Versáteis e adaptáveis a qualquer desafio.",
+    "tipo_criatura": ["humanoide"],
+    "tamanho": ["medio"]
+}

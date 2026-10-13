@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "mercador",
+    "nome": "Mercador",
+    "bonus_atributos":{
+        "constituicao": 1,
+        "inteligencia": 1,
+        "carisma": 1
+    },
+    "proeficiencia_pericias":[
+        "Falar com Animais",
+        "Persuasão"
+    ]
+}

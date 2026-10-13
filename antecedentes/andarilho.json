@@ -1,0 +1,14 @@
+{
+    "schema_versao": 1,
+    "id": "andarilho",
+    "nome": "Andarilho",
+    "bonus_atributos":{
+        "destreza": 1,
+        "sabedoria": 1,
+        "carisma": 1
+    },
+    "proeficiencia_pericias":[
+        "Furtividade",
+        "Intuição"
+    ]
+}
