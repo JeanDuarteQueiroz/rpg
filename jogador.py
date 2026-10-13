@@ -55,7 +55,6 @@ class Jogador():
         for atributo, valor in self.atributos.items():
             print(f"   {atributo.ljust(12).upper()} :{str(valor).rjust((valor), '.')}")
         print(f"{"x".ljust(36,'-')}{"x".rjust(36,'-')}")
-        
-        
+           
 jogador_save1 = Jogador("John", humano_dados, barbaro_dados, nobre_dados)
 jogador_save1.exibir_ficha()
