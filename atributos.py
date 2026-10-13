@@ -1,0 +1,26 @@
+ATRIBUTOS_BARBARO_PADRAO = {
+    "FORÇA": 15,
+    "CONSTITUIÇÃO": 13,
+    "DESTREZA": 14,
+    "INTELIGÊNCIA": 10,
+    "SABEDORIA": 12,
+    "CARISMA": 8
+}
+
+ATRIBUTOS_CLERIGO_PADRAO = {
+    "FORÇA": 14,
+    "CONSTITUIÇÃO": 8,
+    "DESTREZA": 13,
+    "INTELIGÊNCIA": 10,
+    "SABEDORIA": 15,
+    "CARISMA": 12    
+}
+
+ATRIBUTOS_MAGO_PADRAO = {
+    "FORÇA": 8,
+    "CONSTITUIÇÃO": 12,
+    "DESTREZA": 12,
+    "INTELIGÊNCIA": 15,
+    "SABEDORIA": 14,
+    "CARISMA": 10    
+}
