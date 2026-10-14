@@ -10,5 +10,6 @@
     "proeficiencia_pericias":[
         "História",
         "Persuasão"
-    ]
+    ],
+    "sigla_atributos":["FOR +1", "INT +1", "CAR +1"]
 }

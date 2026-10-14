@@ -2,7 +2,7 @@
     "schema_versao": 1,
     "id": "barbaro",
     "nome": "Bárbaro",
-    "descricao": "Sua especialidade é lutar na linha de frente, usando força e resistência para proteger o grupo e causar bastante dano.",
+    "descricao": "Avance com Fúria e entre em combate corpo a corpo.",
     "dado_de_vida": 12,
     "atributos_padrao":{
         "forca": 15,

@@ -10,5 +10,6 @@
     "proeficiencia_pericias":[
         "Furtividade",
         "Intuição"
-    ]
+    ],
+    "sigla_atributos":["DES +1", "SAB +1", "CAR +1"]
 }

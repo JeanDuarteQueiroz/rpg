@@ -10,5 +10,6 @@
     "proeficiencia_pericias":[
         "Atletismo",
         "Percepção"
-    ]
+    ],
+    "sigla_atributos":["FOR +1", "INT +1", "SAB +1"]
 }

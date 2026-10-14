@@ -2,7 +2,7 @@
     "schema_versao": 1,
     "id": "mago",
     "nome": "Mago",
-    "descricao": "Sua especialidade é usar magia para atacar, controlar o campo de batalha e resolver desafios com seus conhecimentos.",
+    "descricao": "Estude magia arcana e domine magias para todos os propósitos.",
     "pontos_de_vida": "1d6",
     "atributos_padrao":{
         "forca": 14,

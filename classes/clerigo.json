@@ -2,7 +2,7 @@
     "schema_versao": 1,
     "id": "clerigo",
     "nome": "Clérigo",
-    "descricao": "Sua especialidade é apoiar a equipe com cura e proteção, além de usar poderes divinos para enfrentar inimigos.",
+    "descricao": "Invoque magia divina para curar, fortalecer e castigar",
     "pontos_de_vida": "1d8",
     "atributos_padrao":{
         "forca": 14,

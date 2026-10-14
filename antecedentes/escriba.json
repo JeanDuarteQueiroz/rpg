@@ -10,5 +10,6 @@
     "proeficiencia_pericias":[
         "Lidar com Animais",
         "Natureza"
-    ]
+    ],
+    "sigla_atributos":["FOR +1", "CON +1", "SAB +1"]
 }

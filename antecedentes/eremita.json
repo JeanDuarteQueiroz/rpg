@@ -10,5 +10,6 @@
     "proeficiencia_pericias":[
         "Medicina",
         "Religião"
-    ]
+    ],
+    "sigla_atributos":["CON +1", "SAB +1", "CAR +1"]
 }

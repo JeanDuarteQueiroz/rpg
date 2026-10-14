@@ -10,5 +10,6 @@
     "proeficiencia_pericias":[
         "Falar com Animais",
         "Persuasão"
-    ]
+    ],
+    "sigla_atributos":["CON +1", "INT +1", "CAR +1"]
 }
