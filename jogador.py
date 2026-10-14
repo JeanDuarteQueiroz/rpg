@@ -1,19 +1,32 @@
-import json
-from utilitario import digitar, carregar_dados_json, limpar_tela
 import time
 import dados
-from antecedentes.antecedentes import exibir_menu_antecedentes, escolher_antecedente
 
+from utilitario import carregar_dados_json, limpar_tela, espera_jogador, menu_pronto_jogar
+from antecedentes.antecedentes import exibir_menu_antecedentes, escolher_antecedente
+from classes.classes import exibir_menu_classes, escolher_classe, sortear_atributos
+from especies.especies import exibir_menu_especies, escolher_especies
 
 # ESPECIES #
 humano_dados = carregar_dados_json("especies/humano.json")
 anao_dados = carregar_dados_json("especies/anao.json")
 elfo_dados = carregar_dados_json("especies/elfo.json")
 
+lista_especies = [
+    humano_dados,
+    anao_dados,
+    elfo_dados
+]
+
 # CLASSE #
 barbaro_dados = carregar_dados_json("classes/barbaro.json")
 clerigo_dados = carregar_dados_json("classes/clerigo.json")
 mago_dados = carregar_dados_json("classes/mago.json")
+
+lista_classes = [
+    barbaro_dados,
+    clerigo_dados,
+    mago_dados
+]
 
 # ANTECEDENTE #
 
@@ -26,7 +39,7 @@ guarda_dados = carregar_dados_json("antecedentes/guarda.json")
 guia_dados = carregar_dados_json("antecedentes/guia.json")
 mercador_dados = carregar_dados_json("antecedentes/mercador.json")
 
-antecedentes = [
+lista_antecedentes = [
         acolito_dados,
         andarilho_dados,
         eremita_dados,
@@ -82,121 +95,52 @@ class Jogador():
         for atributo, valor in self.atributos.items():
             print(f"   {atributo.ljust(12).upper()} :{str(valor).rjust((valor), '.')}")
         print(f"{"x".ljust(36,'-')}{"x".rjust(36,'-')}")
+        espera_jogador()
 
 def criar_ficha_jogador ():
-    
     ## ESCOLHA DO JOGADOR ##
-    
-    # print(f"{"="*50}")
-    # print("Olá Jogador!".center(50))
-    # print(f"{"="*50}")
-    # print()
-    # nome_personagem = str(input("Como posso te chamar?  ").title())
-    # time.sleep(0.1)
-    # limpar_tela()
+    print(f"{"="*50}")
+    print("Olá Jogador!".center(50))
+    print(f"{"="*50}")
+    print()
+    nome_jogador = str(input("Como posso te chamar?  ").title())
+    time.sleep(0.1)
+    limpar_tela()
     
     # ## ESCOLHA DA ESPECIE ##
+    exibir_menu_especies(lista_especies, nome_jogador="Desconhecido")
+    especie_jogador = escolher_especies(lista_especies)
 
-    # print(f"{"="*60}")
-    # print(f"Muito bem, {"teste"}!".center(60))
-    # print(f"Por favor, escolha a 'ESPÉCIE' com a qual quer jogar!".center(60))
-    # print(f"{"="*60}")
-    # print()
-    # print(f"{"|".rjust(20, '-')} ESPÉCIES USÁVEIS {"|".ljust(21, '-')}")
-    # print()
-    # print(f"  1. {humano_dados["nome"]} - {humano_dados["descricao"]}")
-    # print(f"  2. {elfo_dados["nome"]} - {elfo_dados["descricao"]}")
-    # print(f"  3. {anao_dados["nome"]} - {anao_dados["descricao"]}")
-    # print()
-    # print(f"{"|".ljust(30, '-')}{"|".rjust(30, '-')}")
-    # print()
-    # while True:
-    #     especie_jogador = int(input(" Digite o número que representa sua escolha (Ex: 1,2,3): "))
-        
-    #     match especie_jogador:
-    #         case 1:
-    #             especie_jogador = humano_dados
-    #             break
-    #         case 2:
-    #             especie_jogador = elfo_dados
-    #             break
-    #         case 3:
-    #             especie_jogador = anao_dados
-    #             break
-    #         case _:
-    #             print("\n Escolha uma opção válido!\n".center(60))
-    # print("Muito bom!")
-    # time.sleep(0.2)    
-    # limpar_tela()
-
+    print()
+    time.sleep(0.3)
+    limpar_tela()
+    
     # ## ESCOLHA DA CLASSE ##
+    exibir_menu_classes(lista_classes, nome_jogador="Desconhecido")
+    classe_jogador = escolher_classe(lista_classes)
     
-    # print(f"{"="*60}")
-    # print(f"Você está indo bem {"teste"}!".center(60))
-    # print(f"Agora, escolha a 'CLASSE' com a qual quer jogar!".center(60))
-    # print(f"{"="*60}")
-    # print()
-    # print(f"{"|".rjust(20, '-')} CLASSES USÁVEIS {"|".ljust(21, '-')}")
-    # print()
-    # print(f"  1. {barbaro_dados["nome"]} - {barbaro_dados["descricao"]}")
-    # print(f"  2. {clerigo_dados["nome"]} - {clerigo_dados["descricao"]}")
-    # print(f"  3. {mago_dados["nome"]} - {mago_dados["descricao"]}")
-    # print()
-    # print(f"{"|".ljust(30, '-')}{"|".rjust(30, '-')}")
-    # print()
-    # while True:
-    #     classe_jogador = int(input(" Digite o número que representa sua escolha (Ex: 1,2,3): "))
-        
-    #     match classe_jogador:
-    #         case 1:
-    #             classe_jogador = barbaro_dados
-    #             break
-    #         case 2:
-    #             classe_jogador = clerigo_dados
-    #             break
-    #         case 3:
-    #             classe_jogador = mago_dados
-    #             break
-    #         case _:
-    #             print("\n Escolha uma opção válido!\n".center(60))
-    # print("Muito bom!\n")
+    print()
+    time.sleep(0.3)
+    limpar_tela()
     
-    # print("Você deseja usar os atributos padrão da classe?")
-
-    # while True:
-    #     atributos_aleatorios = str(input("Digite 'S' para usar o padrão ou 'N' para jogar os dados:  ").upper())
-        
-    #     match atributos_aleatorios:
-    #         case "S":
-    #             atributo = True
-    #             break
-    #         case "N":
-    #             atributo = False
-    #             break
-    #         case _:
-    #             print("Digite uma opção válida! 'S' ou 'N' ");
-                
+    ## ESCOLHA DO ANTECEDENTE ##            
+    exibir_menu_antecedentes(lista_antecedentes, nome_jogador="Desconhecido")
+    antecedente_jogador = escolher_antecedente(lista_antecedentes)
+    atributo = sortear_atributos()
     
-    exibir_menu_antecedentes(antecedentes, nome_jogador="teste")
-    antecedente = escolher_antecedente(antecedentes)
-    print(antecedente)
+    print(f" Perfeito, {nome_jogador}! Essa é sua ficha no até o momento:")
+    print()
+    jogador1 = Jogador(nome_jogador, especie_jogador, classe_jogador, antecedente_jogador, atributo)
+    jogador1.exibir_ficha() #PAUSA ATÉ O JOGADOR DAR ENTER
+    
+    ## DESEJA JOGAR ##
+    escolha = menu_pronto_jogar(nome_jogador)
+    if escolha == True:
+        print("Começa o Jogo")
+    else: 
+        print("Salva a Ficha criada mas não inicia")
+            
     time.sleep(2)    
-    limpar_tela()    
-    
-    
-    
-#    print(
-#    '''
-        
-# ████─████─████────████──████─███────████──█─█─███────█───█─████─████─████─███─█───█────████─████─████─████────████─████─████──█───███─█──█─███
-# █──█─█──█─█───────█──██─█──█─█──────█──█──█─█─█──────██─██─█──█─█──█─█──█─█───██─██────█──█─█──█─█──█─█──█────█────█──█─█──██─█────█──██─█─█──
-# ████─████─█─██────█──██─█──█─███────█─██──█─█─███────█─█─█─█──█─████─████─███─█─█─█────████─████─████─████────█─██─█──█─████──█────█──█─██─███
-# █─█──█────█──█────█──██─█──█───█────█──█──█─█─█──────█───█─█──█─█─█──█─█──█───█───█────█────█──█─█─█──█──█────█──█─█──█─█──██─█────█──█──█───█
-# █─█──█────████────████──████─███────█████─███─███────█───█─████─█─█──█─█──███─█───█────█────█──█─█─█──█──█────████─████─████──███─███─█──█─███
-       
-#    '''
-#   )
-# jogador_save1 = Jogador("John", humano_dados, barbaro_dados, nobre_dados)
-# jogador_save1.exibir_ficha()
+    limpar_tela()
 
 criar_ficha_jogador()

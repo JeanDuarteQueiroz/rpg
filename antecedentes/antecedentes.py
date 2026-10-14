@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+# Encontra o caminho da pasta atual (minha_pasta) e pega a pasta mãe (meu_projeto)
+pasta_mae = str(Path(__file__).resolve().parent.parent)
+
+# Adiciona a pasta mãe ao sistema de caminhos do Python
+if pasta_mae not in sys.path:
+    sys.path.insert(0, pasta_mae)
+
 def exibir_menu_antecedentes(antecedentes, nome_jogador="teste"):
     print("=" * 60)
     print(f"Ok {nome_jogador}!".center(60))
@@ -5,7 +14,7 @@ def exibir_menu_antecedentes(antecedentes, nome_jogador="teste"):
     print("=" * 60)
     print()
 
-    print(" ANTECEDENTES USÁVEIS ".center(60, "-"))
+    print(" ANTECEDENTES DISPONÍVEIS ".center(60, "-"))
     print()
 
     print(f" {"   ANTECEDENTE":<20} {"BONUS ATRIBUTO":<25} {"PERICIAS":<30}")
@@ -15,13 +24,14 @@ def exibir_menu_antecedentes(antecedentes, nome_jogador="teste"):
     print()
 
 
-def escolher_antecedente(antecedentes):
+def escolher_antecedente(lista_antecedentes):
     while True:
         escolha = input("Digite o número que representa sua escolha (Ex.: 1, 2 3...): ").strip()
         
-        if escolha.isdigit() and 1 <= int(escolha) <= len(antecedentes):
-            return antecedentes[int(escolha)-1]
+        if escolha.isdigit() and 1 <= int(escolha) <= len(lista_antecedentes):
+            print("\Antecedente escolhida com sucesso!!\n")
+            return lista_antecedentes[int(escolha)-1]
         
-        print(f"\nOpção inválida. Digite um número de 1 a {len(antecedentes)}.\n")
+        print(f"\nOpção inválida. Digite um número de 1 a {len(lista_antecedentes)}.\n")
               
     
