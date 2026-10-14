@@ -52,33 +52,120 @@ lista_antecedentes = [
 
 class Jogador():
     def __init__(self, nome, especie, classe, antecedente, atributo=True):
-        
+    #-----------------| EXIBIÇÃO |--------------------#      
         self.nome = nome # NOME JOGADOR
         self.especie = especie.get("nome") # NOME ESPECIE
         self.classe = classe.get("nome") # NOME CLASSE
-
-        if self.atributo == True:
+        self.antecedente = antecedente.get("nome") # NOME ANTECEDENTE
+        
+    #--------------------------------------------------# 
+    #-----------------| ATRIBUTOS |--------------------# 
+        if atributo == True:
             self.atributos = classe.get("atributos_padrao", {}).copy() #-------| ATRIBUTOS PADRÃO
         else: 
-            self.atributos = dados.rolar_dados_atributos()
-            
-        self.antecedente = antecedente.get("nome") # NOME ANTECEDENTE
-        self.bonus_atributos_antecedente = antecedente.get("bonus_atributos", {}) #-------| ANTECEDENTE 
+            self.atributos = atributo
         
+        self.bonus_atributos_antecedente = antecedente.get("bonus_atributos", {}) #-------| ATRIBUTO ANTECEDENTE     
         for atributo, valor in self.bonus_atributos_antecedente.items():
             if atributo in self.atributos:
                 self.atributos[atributo] += valor
-         
-        self.hp_max = classe.get("dado_de_vida") #-------| HP
-        self.hp_atual = self.hp_max #-------| HP ATUAL
+    #---------------| MODIFICADORES |------------------#             
+        
+        
+        
+        
+    #--------------------------------------------------#     
+    #-----------------| VIDA E XP |--------------------#     
+        self.hp_max = classe.get("dado_de_vida") #-------| HP INICIAL MAX
+        self.hp_atual = self.hp_max #-------| HP INICIAL ATUAL
         
         self.nivel = 1 #-------| NIVEL 
         self.xp = 0 #-------| XP
-        
+    #--------------------------------------------------#
+    #------------------| VIDA E XP |-------------------#      
         modificador_destreza = round((self.atributos.get("destreza") - 10 ) // 2)
         self.classe_armadura = 10 + modificador_destreza #-------| CLASSE DE ARMADURA
-               
-        self.subclasse = "Nenhum" #-------| SUBCLASSE
+    #---------------------------------------------------#
+    #-------| PROEFICIENCIA E PERCEPÇÃO PASSIVA |-------#            
+        self.bonus_proeficiencia = 2
+        modificador_sabedoria = round((self.atributos.get("destreza") - 10 ) // 2)
+        self.percepcao_passiva = 10 + modificador_sabedoria
+    #---------------------------------------------------#
+    #------------------| PERICIAS |---------------------# 
+        self.proeficiencia_pericias = {
+            "Atletismo": False,
+            "Acrobacia": False,
+            "Furtividade": False,
+            "Prestigitacao": False,
+            "Arcanismo": False,
+            "Historia": False,
+            "Investigacao": False,
+            "Natureza": False,
+            "Religiao": False,
+            "Lidar com Animais": False,
+            "Intuicao": False,
+            "Medicina": False,
+            "Percepcao": False,
+            "Sobrevivencia": False,
+            "Atuacao": False,
+            "Enganacao": False,
+            "Intimidacao": False,
+            "Persuasao": False,
+        }
+                #-| ARMADURAS |-#
+        self.proeficiencia_armadura = {
+            "Leve": False,
+            "Media": False,
+            "Pesada": False,
+        }
+                #-| ESCUDO |-#    
+        self.proeficiencia_escudo = {
+            "Escudo": False,
+        }
+                #-| FERRAMENTAS |-#    
+        self.proeficiencia_ferramentas = []
+    #---------------------------------------------------#
+    #------------------| SALVAGUARDAS |------------------#  
+        self.salvaguarda_contra_morte = {
+            "Sucesso": 0,
+            "Falha": 0
+        }
+        
+        self.salvaguarda_atributo = {
+            "forca": False,
+            "constituicao": False,
+            "destreza": False,
+            "inteligencia": False,
+            "sabedoria": False,
+            "carisma": False
+        }
+    
+    #---------------------------------------------------#
+    #------------------| INVENTARIO |--------------------# 
+        self.inventario = {
+        #   MOEDAS   #
+            "PP": 0,
+            "PO": 0,
+            "PL": 0,
+            
+        #   ITENS ESPECIAIS  #
+            "Itens Especiais": {
+            
+            },
+            "Itens Consumiveis": {
+                
+            },
+            "Comida": {
+                
+            }
+        }
+    
+    
+    #------------------| SUBCLASSE |--------------------#            
+        self.subclasse = "Nenhum" #-------| DESENVOLVIMENTO FUTURO
+    #---------------------------------------------------#
+    
+    
         
     def exibir_ficha(self):
         nome_classe = self.classe
@@ -142,5 +229,3 @@ def criar_ficha_jogador ():
             
     time.sleep(2)    
     limpar_tela()
-
-criar_ficha_jogador()

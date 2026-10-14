@@ -68,8 +68,5 @@ def sortear_atributos(classe_jogador, nome_jogador="Desconhecido"):
         elif escolha == 'S':
             atributos = rolar_dados_atributos()
             print(f"Seus atributos sorteador são: {atributos}")
-            print("Deseja definir os atributos manualmente? Ordenar pela importancia da classe?")
-            define = str(input("M - Manual ou C - Classe ").upper().strip())
-                
-            print(f"Vou organizá-los em sua ficha conforme sua classe, seguindo o livro do jogador");
+            definir_atributos_manual(atributos)
             return atributos

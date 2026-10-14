@@ -11,5 +11,8 @@
         "inteligencia": 10,
         "sabedoria": 12,
         "carisma": 8
-    }
+    },
+    "proeficiencia_salvaguarda":["forca", "constituicao"],
+    "proeficiencia_armadura":["Leve", "Media"],
+    "proeficiencia_escudo": "True"
 }
