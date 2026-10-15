@@ -1,0 +1,20 @@
+{
+    "schema_versao": 1,
+    "id": "mago",
+    "nome": "Mago",
+    "descricao": "Estude magia arcana e domine magias para todos os propósitos.",
+    "dado_de_vida": 6,
+    "atributos_padrao":{
+        "forca": 8,
+        "constituicao": 12,
+        "destreza": 13,
+        "inteligencia": 15,
+        "sabedoria": 14,
+        "carisma": 10
+    },
+    "proeficiencia_pericias": ["arcanismo","historia", "intuicao", "investigacao", "medicina", "natureza", "religiao"],
+    "proeficiencia_armas": ["simples"],
+    "proeficiencia_salvaguarda":["inteligencia", "sabedoria"],
+    "proeficiencia_armadura":["Leve", "Media"],
+    "proeficiencia_escudo": true
+}

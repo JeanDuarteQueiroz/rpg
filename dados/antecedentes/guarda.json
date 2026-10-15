@@ -8,8 +8,8 @@
         "sabedoria": 1
     },
     "proeficiencia_pericias":[
-        "Atletismo",
-        "Percepção"
+        "atletismo",
+        "percepcao"
     ],
     "sigla_atributos":["FOR +1", "INT +1", "SAB +1"]
 }

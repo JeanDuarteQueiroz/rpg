@@ -8,8 +8,8 @@
         "carisma": 1
     },
     "proeficiencia_pericias":[
-        "Furtividade",
-        "Intuição"
+        "furtividade",
+        "intuicao"
     ],
     "sigla_atributos":["DES +1", "SAB +1", "CAR +1"]
 }

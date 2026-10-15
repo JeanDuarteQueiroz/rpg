@@ -1,0 +1,20 @@
+{
+    "schema_versao": 1,
+    "id": "paladino",
+    "nome": "Paladino",
+    "descricao": "Destrua inimigos e proteja aliados com poder divino e marcial.",
+    "dado_de_vida": 10,
+    "atributos_padrao":{
+        "forca": 15,
+        "constituicao": 10,
+        "destreza": 13,
+        "inteligencia": 8,
+        "sabedoria": 12,
+        "carisma": 14
+    },
+    "proeficiencia_pericias": ["atletismo", "intimidacao", "intuicao", "medicina", "persuasao", "religiao"],
+    "proeficiencia_armas": ["simples", "marciais"],
+    "proeficiencia_salvaguarda":["sabedoria", "carisma"],
+    "proeficiencia_armadura":["Leve", "Media", "pesada"],
+    "proeficiencia_escudo": true
+}

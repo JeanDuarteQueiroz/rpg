@@ -1,0 +1,20 @@
+{
+    "schema_versao": 1,
+    "id": "guerreiro",
+    "nome": "Guerreiro",
+    "descricao": "Domine todas as armas e armaduras.",
+    "dado_de_vida": 10,
+    "atributos_padrao":{
+        "forca": 15,
+        "constituicao": 14,
+        "destreza": 13,
+        "inteligencia": 8,
+        "sabedoria": 10,
+        "carisma": 12
+    },
+    "proeficiencia_pericias": ["acrobacia", "atletismo","historia", "intimidacao", "intuicao", "lidar com animais", "persuasao", "sobrevivencia"],
+    "proeficiencia_armas": ["simples", "marciais"],
+    "proeficiencia_salvaguarda":["forca", "constituicao"],
+    "proeficiencia_armadura":["Leve", "Media", "pesada"],
+    "proeficiencia_escudo": true
+}

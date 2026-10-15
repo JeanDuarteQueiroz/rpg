@@ -7,7 +7,7 @@ def menu_pronto_jogar(nome_jogador="Desconhecido"):
     while True:
         resposta = True
         
-        escolha = str(input("Está pronto para jogar? S - Sim |  N - Não\n").upper().split)
+        escolha = str(input("Está pronto para jogar? S - Sim |  N - Não\n").upper().strip)
         if escolha == 'S':
             return resposta
         elif escolha == 'N':

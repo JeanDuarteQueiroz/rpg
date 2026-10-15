@@ -8,8 +8,8 @@
         "carisma": 1
     },
     "proeficiencia_pericias":[
-        "Falar com Animais",
-        "Persuasão"
+        "lidar com animais",
+        "persuasao"
     ],
     "sigla_atributos":["CON +1", "INT +1", "CAR +1"]
 }

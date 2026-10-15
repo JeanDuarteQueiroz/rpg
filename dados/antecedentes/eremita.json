@@ -8,8 +8,8 @@
         "carisma": 1
     },
     "proeficiencia_pericias":[
-        "Medicina",
-        "Religião"
+        "medicina",
+        "religiao"
     ],
     "sigla_atributos":["CON +1", "SAB +1", "CAR +1"]
 }

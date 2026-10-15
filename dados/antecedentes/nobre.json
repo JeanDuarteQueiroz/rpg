@@ -8,8 +8,8 @@
         "carisma": 1
     },
     "proeficiencia_pericias":[
-        "História",
-        "Persuasão"
+        "historia",
+        "persuasao"
     ],
     "sigla_atributos":["FOR +1", "INT +1", "CAR +1"]
 }

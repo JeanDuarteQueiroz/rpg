@@ -3,7 +3,7 @@
     "id": "clerigo",
     "nome": "Clérigo",
     "descricao": "Invoque magia divina para curar, fortalecer e castigar",
-    "pontos_de_vida": "1d8",
+    "dado_de_vida": 8,
     "atributos_padrao":{
         "forca": 14,
         "constituicao": 8,
@@ -11,5 +11,10 @@
         "inteligencia": 10,
         "sabedoria": 15,
         "carisma": 12
-    }
+    },
+    "proeficiencia_pericias": ["historia", "intuicao", "medicina", "persuasao", "religiao"],
+    "proeficiencia_armas": ["simples"],
+    "proeficiencia_salvaguarda":["sabedoria", "carisma"],
+    "proeficiencia_armadura":["Leve", "Media"],
+    "proeficiencia_escudo": true
 }

@@ -8,8 +8,8 @@
         "carisma": 1
     },
     "proeficiencia_pericias":[
-        "Intuição",
-        "Religião"
+        "intuicao",
+        "religiao"
     ],
     "sigla_atributos":["INT +1", "SAB +1", "CAR +1"]
 }

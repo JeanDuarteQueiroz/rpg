@@ -27,5 +27,3 @@ def rolar_dados_atributos():
         resultados.pop(0)
         atributos.append(sum(resultados))
     return atributos
-
-print(rolar_dados_atributos())
