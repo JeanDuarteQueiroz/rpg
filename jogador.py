@@ -112,25 +112,38 @@ class Jogador():
             "Intimidacao": False,
             "Persuasao": False,
         }
+        for pericias in antecedente["proeficiencia_pericias"]:
+            if pericias in self.proeficiencia_pericias:
+                self.proeficiencia_pericias[pericias] = True
+
                 #-| ARMADURAS |-#
         self.proeficiencia_armadura = {
             "Leve": False,
             "Media": False,
             "Pesada": False,
         }
+        for armadura in classe["proeficiencia_armadura"]:
+            if armadura in self.proeficiencia_armadura:
+                self.proeficiencia_armadura[armadura] = True
+                
                 #-| ESCUDO |-#    
         self.proeficiencia_escudo = {
             "Escudo": False,
         }
+        if classe["proeficiencia_escudo"] == "True":
+            self.proeficiencia_escudo = True
+        else:
+            self.proeficiencia_escudo = False
+        
                 #-| FERRAMENTAS |-#    
-        self.proeficiencia_ferramentas = []
+        
     #---------------------------------------------------#
     #------------------| SALVAGUARDAS |------------------#  
         self.salvaguarda_contra_morte = {
             "Sucesso": 0,
             "Falha": 0
         }
-        
+
         self.salvaguarda_atributo = {
             "forca": False,
             "constituicao": False,
@@ -139,7 +152,10 @@ class Jogador():
             "sabedoria": False,
             "carisma": False
         }
-    
+        for salvaguarda in classe["proeficiencia_salvaguarda"]:
+            if salvaguarda in self.salvaguarda_atributo:
+                self.salvaguarda_atributo[salvaguarda] = True
+            
     #---------------------------------------------------#
     #------------------| INVENTARIO |--------------------# 
         self.inventario = {
@@ -160,7 +176,9 @@ class Jogador():
             }
         }
     
-    
+    #------------------| FERRAMENTAS |--------------------# 
+        self.proeficiencia_ferramentas = [] #----| DESENVOLVIMENTO FUTURO
+    #---------------------------------------------------#
     #------------------| SUBCLASSE |--------------------#            
         self.subclasse = "Nenhum" #-------| DESENVOLVIMENTO FUTURO
     #---------------------------------------------------#
