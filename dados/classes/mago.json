@@ -10,11 +10,11 @@
         "destreza": 13,
         "inteligencia": 15,
         "sabedoria": 14,
-        "carisma": 10
+      "carisma": 10
     },
-    "proeficiencia_pericias": ["arcanismo","historia", "intuicao", "investigacao", "medicina", "natureza", "religiao"],
-    "proeficiencia_armas": ["simples"],
-    "proeficiencia_salvaguarda":["inteligencia", "sabedoria"],
-    "proeficiencia_armadura":["Leve", "Media"],
-    "proeficiencia_escudo": true
+    "proficiencia_pericias": ["arcanismo","historia", "intuicao", "investigacao", "medicina", "natureza", "religiao"],
+    "proficiencia_armas": ["simples"],
+    "proficiencia_salvaguarda":["inteligencia", "sabedoria"],
+    "proficiencia_armadura":["Leve", "Media"],
+    "proficiencia_escudo": true
 }

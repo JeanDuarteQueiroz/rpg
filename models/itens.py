@@ -1,15 +1,13 @@
-## ARMAS, ARMADURAS E ITENS CONSUMIVEIS ##
-from jogador import Jogador
+## ARMAS, ARMADURAS, ESCUDOS E ITENS CONSUMIVEIS ##
 
 class Item():
     def __init__(self, id_item, nome, descricao, peso, preco):
         
-        self.id = id
+        self.id = id_item
         self.nome = nome
         self.descricao = descricao
-        self. peso = peso
+        self.peso = peso
         self.preco = preco
-    
     
 class Arma(Item):
     
@@ -25,6 +23,7 @@ class Arma(Item):
         dados_de_dano: str,# 1d6, 2d4, etc
         tipo_do_dano: str, # Cortante, Concussão, Perfurante, etc
         propriedades: list = None,
+        dado_dano_duas_maos: str = None
     ):
         
         super().__init__(id_item, nome, descricao, peso, preco)
@@ -32,8 +31,16 @@ class Arma(Item):
         self.dados_de_dano = dados_de_dano
         self.tipo_dano = tipo_do_dano
         self.propriedades = set(propriedades or [])
-    
-    def calcular_modificador_atributo(self, portador) -> int:
+        self.dado_dano_duas_maos = dado_dano_duas_maos
+        
+
+    def obter_dado_dano(self, com_duas_maos: bool = False) -> str:
+        """Devolve o dado de duas mãos caso a arma seja versátil e seja usada com as duas mãos; caso contrário, devolve o dado padrão."""
+        if "versatil" in self.propriedades and com_duas_maos and self.dado_dano_duas_maos:
+            return self.dado_dano_duas_maos
+        return self.dados_de_dano
+
+    def calcular_modificador_atributo(self, portador) -> int:        
         if "acuidade" in self.propriedades:
             bonus = max(portador.modificador("destreza"), portador.modificador("forca"))
         else:
@@ -42,8 +49,8 @@ class Arma(Item):
     
     def calcular_modificador_acerto(self, portador) -> int:
         bonus = self.calcular_modificador_atributo(portador)
-        if self.tipo in portador.proeficiencia_armas or self.nome in portador.proeficiencia_armas:
-            bonus += portador.bonus_proeficiencia
+        if self.tipo in portador.proficiencia_armas or self.nome in portador.proficiencia_armas:
+            bonus += portador.bonus_proficiencia
         return bonus
 
     def calcular_modificador_dano(self, portador) -> int:
@@ -53,7 +60,7 @@ class Arma(Item):
     @classmethod
     def do_dict(cls, dados:dict):
         return cls(
-            id_item = dados.get("id_item", "Desconhecido"),
+            id_item = dados.get("id", "Desconhecido"),
             nome = dados.get("nome", "Arma Sem Nome"),
             descricao = dados.get("descricao", "Uma arma..."),
             peso = dados.get("peso", 0.0),
@@ -61,8 +68,9 @@ class Arma(Item):
             
             tipo = dados.get("tipo", "simples"),
             dados_de_dano = dados.get("dados_de_dano", "1d4"),
-            tipo_de_dano = dados.get("tipo_de_dano", ""),
-            propriedades = dados.get("propriedades", [])
+            tipo_do_dano = dados.get("tipo_do_dano", ""),
+            propriedades = dados.get("propriedades", []),
+            dado_dano_duas_maos = dados.get("dado_dano_duas_maos", None)
         )
     
 class Armadura(Item):
@@ -75,30 +83,38 @@ class Armadura(Item):
         preco: float,
         
         tipo_armadura: str,         
-        ca_base: int,
-        permite_destreza: bool
+        ca_base: int
     ):
         super().__init__(id_item, nome, descricao, peso, preco)
         
-        self.tipo_armadura = tipo_armadura
+        self.tipo_armadura = tipo_armadura.title()
         self.ca_base = ca_base
-        self.permite_destreza = permite_destreza
         
     @classmethod
     def do_dict(cls, dados: dict):
         return cls(
-            id_item=dados.get("id"),
-            nome=dados.get("nome"),
+            id_item=dados.get("id", "Desconhecida"),
+            nome=dados.get("nome", "Armadura Sem Nome"),
             descricao=dados.get("descricao", ""),
             peso=float(dados.get("peso", 2.0)),
             preco=float(dados.get("preco", 10.0)),
-            bonus_ca=int(dados.get("bonus_ca", 2)),
-            
-            tipo_armadura = dados.get("tipo_armadura", ""),
-            ca_base = int(dados.get("ca_base", 10)),
-            permite_destreza = dados.get("permite_destreza", True)
+            tipo_armadura=dados.get("tipo_armadura", "Leve"),
+            ca_base=int(dados.get("ca_base", 10))
         )
+        
+    def calcula_ca(self, portador) -> int:
+        tipo = self.tipo_armadura.strip().lower()
 
+        if tipo == "leve":
+            return self.ca_base + portador.modificador("destreza")
+        elif tipo in ("media", "média"):
+            return self.ca_base + min(2, portador.modificador("destreza"))
+        elif tipo == "pesada":
+            return self.ca_base
+        else:
+            # Caso haja algum erro no cadastro do JSON, assume ao menos a CA base
+            return self.ca_base
+    
 class Escudo(Item):
 
     def __init__(

@@ -2,38 +2,38 @@ import json
 import time
 import os
 
-
-def menu_pronto_jogar(nome_jogador="Desconhecido"):
+def menu_pronto_jogar(nome_jogador="Aventureiro"):
     while True:
-        resposta = True
+        # CORREÇÃO: () adicionados ao strip() e remoção da variável "resposta" redundante
+        escolha = input(f"[{nome_jogador}] Está pronto para jogar? S - Sim |  N - Não\n").upper().strip()
         
-        escolha = str(input("Está pronto para jogar? S - Sim |  N - Não\n").upper().strip)
         if escolha == 'S':
-            return resposta
+            return True
         elif escolha == 'N':
-            resposta = False
             print("É uma pena...")
-            return resposta
-
+            return False
 
 def carregar_dados_json(caminho):
-    with open (caminho, "r", encoding="utf-8") as arquivo:
+    with open(caminho, "r", encoding="utf-8") as arquivo:
         return json.load(arquivo)
     
-def digitar(texto, velocidade=0.2, quebra_linha=True):
+def digitar(texto, velocidade=0.03, quebra_linha=True):
+    # CORREÇÃO: Velocidade alterada de 0.2 para 0.03
     for char in texto:
         print(char, end='', flush=True)
         time.sleep(velocidade)
-    print()
+    
+    print() # Fecha a linha atual de impressão
     
     if quebra_linha:
-        print()
+        print() # Adiciona uma linha vazia extra se desejado
         
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
     
 def espera_jogador():
-    input(" Precione [ENTER] pra continuar...")
+    # CORREÇÃO: Ortografia corrigida
+    input(" Pressione [ENTER] para continuar...")
     
 def nome_rpg():
     print(

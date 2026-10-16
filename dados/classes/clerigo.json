@@ -1,5 +1,5 @@
 {
-    "schema_versao": 1,
+  "schema_versao": 1,
     "id": "clerigo",
     "nome": "Clérigo",
     "descricao": "Invoque magia divina para curar, fortalecer e castigar",
@@ -12,9 +12,9 @@
         "sabedoria": 15,
         "carisma": 12
     },
-    "proeficiencia_pericias": ["historia", "intuicao", "medicina", "persuasao", "religiao"],
-    "proeficiencia_armas": ["simples"],
-    "proeficiencia_salvaguarda":["sabedoria", "carisma"],
-    "proeficiencia_armadura":["Leve", "Media"],
-    "proeficiencia_escudo": true
+    "proficiencia_pericias": ["historia", "intuicao", "medicina", "persuasao", "religiao"],
+    "proficiencia_armas": ["simples"],
+    "proficiencia_salvaguarda":["sabedoria", "carisma"],
+    "proficiencia_armadura":["Leve", "Media"],
+    "proficiencia_escudo": true
 }

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "raio_de_fogo",
+    "nome": "Raio de Fogo",
+    "descricao": "Lança um raio de chamas na direção de uma criatura.",
+    "tipo": "truque",
+    "nivel": 0,
+    "escola": "evocacao",
+    "tipo_resolucao": "ataque",
+    "dados_efeito": "1d10",
+    "tipo_dano": "igneo"
+  },
+  {
+    "id": "maos_flamejantes",
+    "nome": "Mãos Flamejantes",
+    "descricao": "Uma fina cortina de chamas irrompe das suas mãos.",
+    "tipo": "magia",
+    "nivel": 1,
+    "escola": "evocacao",
+    "tipo_resolucao": "salvaguarda",
+    "atributo_salvaguarda": "destreza",
+    "dados_efeito": "3d6",
+    "tipo_dano": "igneo"
+  }
+]

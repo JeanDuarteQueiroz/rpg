@@ -103,7 +103,7 @@ def exibir_menu_antecedentes(antecedentes, nome_jogador="teste"):
 
     print(f" {"   ANTECEDENTE":<20} {"BONUS ATRIBUTO":<25} {"PERICIAS":<30}")
     for numero, dados in enumerate(antecedentes, start=1):
-        print(f"  {numero}. {dados['nome'].ljust(10)} | {', '.join(dados['sigla_atributos'])} | {', '.join(dados['proeficiencia_pericias'])}")
+        print(f"  {numero}. {dados['nome'].ljust(10)} | {', '.join(dados['sigla_atributos'])} | {', '.join(dados['proficiencia_pericias'])}")
     print(f"\n|{'-' * 58}|")
     print()
 
