@@ -3,7 +3,7 @@
     "id": "guerreiro",
     "nome": "Guerreiro",
     "descricao": "Domine todas as armas e armaduras.",
-    "dado_de_vida": 10,
+    "dado_de_vida": "1d10",
     "atributos_padrao":{
         "forca": 15,
         "constituicao": 14,

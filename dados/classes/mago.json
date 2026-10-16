@@ -3,7 +3,7 @@
     "id": "mago",
     "nome": "Mago",
     "descricao": "Estude magia arcana e domine magias para todos os propósitos.",
-    "dado_de_vida": 6,
+    "dado_de_vida": "1d6",
     "atributos_padrao":{
         "forca": 8,
         "constituicao": 12,

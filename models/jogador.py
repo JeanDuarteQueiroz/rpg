@@ -21,14 +21,16 @@ class Jogador():
         self.bonus_atributos_antecedente = antecedente.get("bonus_atributos", {}) #-------| ATRIBUTO ANTECEDENTE     
         for atributo, valor in self.bonus_atributos_antecedente.items():
             if atributo in self.atributos:
-                self.atributos[atributo] += valor
-           
-            #---------------| MODIFICADORES |------------------#  
+                self.atributos[atributo] += valor  
         
     #--------------------------------------------------#     
-    #-----------------| VIDA E XP |--------------------#     
-        self.hp_max = classe.get("dado_de_vida", 1) #-------| HP INICIAL MAX
+    #-----------------| VIDA E XP |--------------------#
+        self.dado_de_vida = classe.get("dado_de_vida", "1d6")
+        partes = self.dado_de_vida.split("d")     
+        self.hp_max = max(1, int(partes[1]) + self.modificador("constituicao")) #-------| HP INICIAL MAX
+              
         self.hp_atual = self.hp_max #-------| HP INICIAL ATUAL
+        
         
         self.nivel = 1 #-------| NIVEL 
         self.xp = 0 #-------| XP

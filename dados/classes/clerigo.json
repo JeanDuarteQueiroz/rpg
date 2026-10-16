@@ -3,7 +3,7 @@
     "id": "clerigo",
     "nome": "Clérigo",
     "descricao": "Invoque magia divina para curar, fortalecer e castigar",
-    "dado_de_vida": 8,
+    "dado_de_vida": "1d8",
     "atributos_padrao":{
         "forca": 14,
         "constituicao": 8,

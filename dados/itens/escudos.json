@@ -1,0 +1,10 @@
+[
+    {
+        "id_item": "escudo",
+        "nome": "Escudo",
+        "descricao": "Pedaço circular de mandeira.",
+        "peso": 2.75,
+        "preco": 100,
+        "bonis_ca": 2
+    }
+]

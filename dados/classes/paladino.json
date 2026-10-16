@@ -3,7 +3,7 @@
     "id": "paladino",
     "nome": "Paladino",
     "descricao": "Destrua inimigos e proteja aliados com poder divino e marcial.",
-    "dado_de_vida": 10,
+    "dado_de_vida": "1d10",
     "atributos_padrao":{
         "forca": 15,
         "constituicao": 10,

@@ -3,7 +3,7 @@
     "id": "barbaro",
     "nome": "Bárbaro",
     "descricao": "Avance com Fúria e entre em combate corpo a corpo.",
-    "dado_de_vida": 12,
+    "dado_de_vida": "1d12",
     "atributos_padrao":{
         "forca": 15,
         "constituicao": 13,

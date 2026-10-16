@@ -1,0 +1,244 @@
+[
+    {
+        "id": "adaga",
+        "nome": "Adaga",
+        "descricao": "Uma lâmina curta e afiada, excelente para ataques rápidos e ocultação.",
+        "peso": 0.45,
+        "preco": 20,
+        "tipo": "simples",
+        "dados_de_dano": "1d4",
+        "tipo_do_dano": "perfurante",
+        "propriedades": ["acuidade", "leve","arremesso"]
+    },
+    {
+        "id": "bordao",
+        "nome": "Bordão",
+        "descricao": "Um bastão longo de madeira usado como arma",
+        "peso": 1.8,
+        "preco": 100,
+        "tipo": "simples",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "concussao",
+        "propriedades": ["versatil"]
+    },
+    {
+        "id": "lanca",
+        "nome": "Lança",
+        "descricao": "Uma arma branca de haste composta por um cabo longo e uma ponta afiada na extremidade",
+        "peso": 1.4,
+        "preco": 10,
+        "tipo": "simples",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "perfurante",
+        "propriedades": ["versatil", "arremesso"]
+    }
+    {
+        "id": "machadinha",
+        "nome": "Machadinho",
+        "descricao": "Uma ferramenta de corte compacta e portátil, usado em uma mão",
+        "peso": 0.9,
+        "preco": 50,
+        "tipo": "simples",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "cortante",
+        "propriedades": ["leve","arremesso"]
+    },
+    {
+        "id":"maca",
+        "nome": "Maça",
+        "descricao": "Uma arma de combate corpo a corpo que usa uma cabeça pesada e espinhosa na ponta de um cabo",
+        "peso": 1.8,
+        "preco": 50,
+        "tipo": "simples",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano":"concussao",
+        "propriedades":[]
+    },
+    {
+        "id":"martelo_leve",
+        "nome": "Martelo Leve",
+        "descricao":"Uma ferramenta composta por uma cabeça pesada fixada a um cabo",
+        "peso": 0.9,
+        "preco": 20,
+        "tipo": "simples",
+        "dados_de_dano":"1d4",
+        "tipo_do_dano":"concussao",
+        "propriedades":["leve", "arremesso"]
+    },
+    {
+        "id":"arco_curto",
+        "nome": "Arco Curto",
+        "descricao":"Uma arma de longo alcance feita de uma haste flexível de no máximo 1,2m",
+        "peso": 0.9,
+        "preco": 250,
+        "tipo": "simples",
+        "dados_de_dano":"1d6",
+        "tipo_do_dano":"perfurante",
+        "propriedades":["municao", "duas_maos"]
+    },
+    {
+        "id":"besta_leve",
+        "nome": "Besta Leve",
+        "descricao":"Uma arma de disparo de longo alcance composta por um arco curto montado sobre uma coronha de madeira",
+        "peso": 2.25,
+        "preco": 250,
+        "tipo": "simples",
+        "dados_de_dano":"1d8",
+        "tipo_do_dano":"perfurante",
+        "propriedades":["municao","recarga","duas_maos"]        
+    },
+    {
+        "id":"cimitarra",
+        "nome": "Cimitarra",
+        "descricao": "Uma espada tradicional famosa por sua lâmina curva de um único gume",
+        "peso": 1.4,
+        "preco": 250,
+        "tipo": "marcial",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "cortante",
+        "propriedades":["acuidade","leve"]
+    },
+    {
+        "id":"chicote",
+        "nome": "Chicote",
+        "descricao": "Uma arma composta por um cabo rígido ligado a uma tira flexível de couro.",
+        "peso": 1.4,
+        "preco": 20,
+        "tipo": "marcial",
+        "dados_de_dano": "1d4",
+        "tipo_do_dano": "cortante",
+        "propriedades":["acuidade","alcance"]
+    },
+    {
+        "id":"espada_curta",
+        "nome": "Espada Curta",
+        "descricao": "Uma arma branca corpo a corpo, intermediaria entre adaga e espada longa.",
+        "peso": 0.9,
+        "preco": 100,
+        "tipo": "marcial",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "perfurante",
+        "propriedades":["acuidade","leve"]        
+    },
+    {
+        "id":"Espada Longa",
+        "nome": "Espada Longa",
+        "descricao": "Uma lamina composta por uma ponta de gume",
+        "peso": 1.4,
+        "preco": 150,
+        "tipo": "marcial",
+        "dados_de_dano": "1d8",
+        "tipo_do_dano": "cortante",
+        "propriedades":["versatil"]  
+    },   
+    {
+        "id":"Espada Grande",
+        "nome": "Espada Grande",
+        "descricao": "Uma arma grande corpoomposta basicamente por uma lâmina e uma empunhadura.",
+        "peso": 2.75,
+        "preco": 500,
+        "tipo": "marcial",
+        "dados_de_dano": "2d6",
+        "tipo_do_dano": "cortante",
+        "propriedades":["pesada","duas_maos"]    
+    },
+    {
+        "id":"morningstar",
+        "nome": "Morningstar",
+        "descricao": "Um bastão de madeira com a cabeça esférica repleta de espinhos.",
+        "peso": 1.8,
+        "preco": 150,
+        "tipo": "marcial",
+        "dados_de_dano": "1d8",
+        "tipo_do_dano": "perfurante",
+        "propriedades":[]
+    },
+    {
+        "id":"machado_de_batalha",
+        "nome": "Machado de Batalha",
+        "descricao": "Uma arma composta por um cabo e uma lamina com fio largo e curvado.",
+        "peso": 1.8,
+        "preco": 100,
+        "tipo": "marcial",
+        "dados_de_dano": "1d8",
+        "tipo_do_dano": "cortante",
+        "propriedades":["versatil"]
+    },
+    {
+        "id":"machado_grande",
+        "nome": "Machado Grande",
+        "descricao": "Uma arma composta por um cabo e uma lamina com fio largo e curvado.",
+        "peso": 3.2,
+        "preco": 300,
+        "tipo": "marcial",
+        "dados_de_dano": "1d12",
+        "tipo_do_dano": "cortante",
+        "propriedades":["pesada","duas_maos"]
+    },
+    {
+        "id":"mangual",
+        "nome": "Mangual",
+        "descricao": "Uma arma composta por um cabo ligado a uma bola de espinhos por uma corrente articulada.",
+        "peso": 0.8,
+        "preco": 100,
+        "tipo": "marcial",
+        "dados_de_dano": "1d8",
+        "tipo_do_dano": "concussao",
+        "propriedades":[]
+    },
+    {
+        "id":"rapieira",
+        "nome": "Rapieira",
+        "descricao": "Uma espada longa, reta, fina e pontiaguda.",
+        "peso": 0.8,
+        "preco": 250,
+        "tipo": "marcial",
+        "dados_de_dano": "1d8",
+        "tipo_do_dano": "perfurante",
+        "propriedades":["acuidade"]
+    },
+    {
+        "id":"tridente",
+        "nome": "Tridente",
+        "descricao": "uma lança ou haste que termina em três pontas ou dentes.",
+        "peso": 1.8,
+        "preco": 50,
+        "tipo": "marcial",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "perfurante",
+        "propriedades":["arremesso","versatil"]
+    },
+    {
+        "id":"arco_longo",
+        "nome": "Arco Longo",
+        "descricao": "ma arma de longo alcance feita de uma haste flexível de 1.8 a 2m.",
+        "peso": 0.8,
+        "preco": 500,
+        "tipo": "marcial",
+        "dados_de_dano": "1d8",
+        "tipo_do_dano": "perfurante",
+        "propriedades":["municao","pesada","duas_maos"]
+    },
+    {
+        "id":"besta_de_mao",
+        "nome": "Besta de Mão",
+        "descricao": "Uma arma de disparo de longo alcance composta por um arco curto montado sobre uma coronha de madeira",
+        "peso": 1.4,
+        "preco": 750,
+        "tipo": "marcial",
+        "dados_de_dano": "1d6",
+        "tipo_do_dano": "perfurante",
+        "propriedades":["municao","leve","recarga"]
+    },
+    {
+        "id":"besta_pesada",
+        "nome": "Besta Pesada",
+        "descricao": "Uma arma de disparo de longo alcance composta por um arco curto montado sobre uma coronha de madeira",
+        "peso": 8.15,
+        "preco": 500,
+        "tipo": "marcial",
+        "dados_de_dano": "1d10",
+        "tipo_do_dano": "perfurante",
+        "propriedades":["municao","pesada","recarga","duas_maos"]
+    }
+]
