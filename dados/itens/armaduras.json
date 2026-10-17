@@ -1,32 +1,32 @@
 [
     {
-        "id_item": "acolchoada", 
+        "id": "acolchoada", 
         "nome": "Alcochoada",
+        "descricao": "",
         "peso": 50,
         "preco": 3.65,
         
         "tipo_armadura": "Leve",         
-        "ca_base": 11,
-        "permite_destreza": true
+        "ca_base": 11
     },
     {
-        "id_item": "couro", 
+        "id": "couro", 
         "nome": "Couro",
+        "descricao": "",
         "peso": 100,
         "preco": 4.5,
         
         "tipo_armadura": "Leve",         
-        "ca_base": 11,
-        "permite_destreza": true
+        "ca_base": 11
     },
     {
-        "id_item": "couro_batido", 
+        "id": "couro_batido", 
         "nome": "Couro Batido",
+        "descricao": "",
         "peso": 450,
         "preco": 5.9,
         
         "tipo_armadura": "Leve",         
-        "ca_base": 12,
-        "permite_destreza": true
+        "ca_base": 12
     }
 ]

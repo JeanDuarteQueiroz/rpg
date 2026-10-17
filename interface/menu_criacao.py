@@ -13,10 +13,11 @@ def sortear_atributos(classe_jogador, nome_jogador="Desconhecido"):
         if escolha == 'P':
             return atributo
         elif escolha == 'S':
-            atributos = rolar_dados_atributos()
-            print(f"Seus atributos sorteador são: {atributos}")
-            definir_atributos_manual(atributos)
-            return atributos
+            atributos_rolados = rolar_dados_atributos()
+            print(f"Seus atributos sorteados são: {atributos_rolados}")
+            # Guarda o dicionário retornado pela função manual
+            atributos_finais = definir_atributos_manual(atributos_rolados) 
+            return atributos_finais
 
 def definir_atributos_manual (atributos):
     atributos_jogador = {}
@@ -103,7 +104,7 @@ def exibir_menu_antecedentes(antecedentes, nome_jogador="teste"):
 
     print(f" {"   ANTECEDENTE":<20} {"BONUS ATRIBUTO":<25} {"PERICIAS":<30}")
     for numero, dados in enumerate(antecedentes, start=1):
-        print(f"  {numero}. {dados['nome'].ljust(10)} | {', '.join(dados['sigla_atributos'])} | {', '.join(dados['proeficiencia_pericias'])}")
+        print(f"  {numero}. {dados['nome'].ljust(10)} | {', '.join(dados['sigla_atributos'])} | {', '.join(dados['proficiencia_pericias'])}")
     print(f"\n|{'-' * 58}|")
     print()
 

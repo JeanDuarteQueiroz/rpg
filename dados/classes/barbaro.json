@@ -12,9 +12,9 @@
         "sabedoria": 12,
         "carisma": 8
     },
-    "proeficiencia_pericias": ["atletismo", "intimidacao", "lidar com animais", "natureza", "percepcao", "sobrevivencia"],
-    "proeficiencia_armas": ["simples", "marciais"],
-    "proeficiencia_salvaguarda":["forca", "constituicao"],
-    "proeficiencia_armadura":["Leve", "Media"],
-    "proeficiencia_escudo": true
+    "proficiencia_pericias": ["atletismo", "intimidacao", "lidar com animais", "natureza", "percepcao", "sobrevivencia"],
+    "proficiencia_armas": ["simples", "marciais"],
+    "proficiencia_salvaguarda":["forca", "constituicao"],
+    "proficiencia_armadura":["Leve", "Media"],
+    "proficiencia_escudo": true
 }

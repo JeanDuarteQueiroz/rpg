@@ -1,10 +1,10 @@
 [
     {
-        "id_item": "escudo",
+        "id": "escudo",
         "nome": "Escudo",
-        "descricao": "Pedaço circular de mandeira.",
+        "descricao": "Pedaço circular de mandeira reforçada com metal.",
         "peso": 2.75,
         "preco": 100,
-        "bonis_ca": 2
+        "bonus_ca": 2
     }
 ]

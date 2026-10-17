@@ -19,7 +19,8 @@
         "tipo": "simples",
         "dados_de_dano": "1d6",
         "tipo_do_dano": "concussao",
-        "propriedades": ["versatil"]
+        "propriedades": ["versatil"],
+        "dado_dano_duas_maos": "1d8"
     },
     {
         "id": "lanca",
@@ -30,8 +31,9 @@
         "tipo": "simples",
         "dados_de_dano": "1d6",
         "tipo_do_dano": "perfurante",
-        "propriedades": ["versatil", "arremesso"]
-    }
+        "propriedades": ["versatil", "arremesso"],
+        "dado_dano_duas_maos": "1d8"
+    },
     {
         "id": "machadinha",
         "nome": "Machadinho",
@@ -121,7 +123,7 @@
         "propriedades":["acuidade","leve"]        
     },
     {
-        "id":"Espada Longa",
+        "id":"espada_longa",
         "nome": "Espada Longa",
         "descricao": "Uma lamina composta por uma ponta de gume",
         "peso": 1.4,
@@ -129,10 +131,11 @@
         "tipo": "marcial",
         "dados_de_dano": "1d8",
         "tipo_do_dano": "cortante",
-        "propriedades":["versatil"]  
+        "propriedades":["versatil"],
+        "dado_dano_duas_maos": "1d10"
     },   
     {
-        "id":"Espada Grande",
+        "id":"espada_grande",
         "nome": "Espada Grande",
         "descricao": "Uma arma grande corpoomposta basicamente por uma lâmina e uma empunhadura.",
         "peso": 2.75,
@@ -162,7 +165,8 @@
         "tipo": "marcial",
         "dados_de_dano": "1d8",
         "tipo_do_dano": "cortante",
-        "propriedades":["versatil"]
+        "propriedades":["versatil"],
+        "dado_dano_duas_maos": "1d10"
     },
     {
         "id":"machado_grande",
@@ -206,7 +210,8 @@
         "tipo": "marcial",
         "dados_de_dano": "1d6",
         "tipo_do_dano": "perfurante",
-        "propriedades":["arremesso","versatil"]
+        "propriedades":["arremesso","versatil"],
+        "dado_dano_duas_maos": "1d8"
     },
     {
         "id":"arco_longo",

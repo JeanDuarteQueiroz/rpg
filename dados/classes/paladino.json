@@ -12,9 +12,9 @@
         "sabedoria": 12,
         "carisma": 14
     },
-    "proeficiencia_pericias": ["atletismo", "intimidacao", "intuicao", "medicina", "persuasao", "religiao"],
-    "proeficiencia_armas": ["simples", "marciais"],
-    "proeficiencia_salvaguarda":["sabedoria", "carisma"],
-    "proeficiencia_armadura":["Leve", "Media", "pesada"],
-    "proeficiencia_escudo": true
+    "proficiencia_pericias": ["atletismo", "intimidacao", "intuicao", "medicina", "persuasao", "religiao"],
+    "proficiencia_armas": ["simples", "marciais"],
+    "proficiencia_salvaguarda":["sabedoria", "carisma"],
+    "proficiencia_armadura":["Leve", "Media", "pesada"],
+    "proficiencia_escudo": true
 }
