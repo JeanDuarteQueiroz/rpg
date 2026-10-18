@@ -1,4 +1,5 @@
 from models.itens import Inventario
+from core.banco_dados import BancoDeDados
 
 class Jogador():
     
@@ -238,4 +239,25 @@ class Jogador():
         valor = self.atributos.get(atributo, 10)
         return (valor - 10) // 2     
     
+    def subir_nivel(self):
+        # 1. Pega o dicionário da classe do jogador (ex: "barbaro") no banco de dados
+        dados_classe = BancoDeDados.obter_classe(self.classe_id)
+        
+        # 2. Busca a progressão do nível atual (transformando o int em string para ler o JSON)
+        progresso_atual = dados_classe.get("progressao_nivel", {}).get(str(self.nivel), {})
+        
+        if not progresso_atual:
+            return # Não há novidades para este nível
+            
+        # 3. Atualiza atributos base
+        if "bonus_proficiencia" in progresso_atual:
+            self.bonus_proficiencia = progresso_atual["bonus_proficiencia"]
+            
+        # 4. Busca os clones das habilidades liberadas neste nível
+        novas_habilidades = progresso_atual.get("habilidades_desbloqueadas", [])
+        for hab_id in novas_habilidades:
+            nova_hab = BancoDeDados.obter_habilidade(hab_id)
+            if nova_hab:
+                self.habilidades.append(nova_hab)
+                print(f"🌟 {self.nome} aprendeu uma nova habilidade: {nova_hab.nome}!")
     

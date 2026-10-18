@@ -16,5 +16,33 @@
     "proficiencia_armas": ["simples", "marciais"],
     "proficiencia_salvaguarda":["forca", "constituicao"],
     "proficiencia_armadura":["Leve", "Media"],
-    "proficiencia_escudo": true
+    "proficiencia_escudo": true,
+
+    "progressao_nivel": {
+        "1": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["furia_barbara", "defesa_sem_armadura"],
+            "espacos_magia": {}
+        },
+        "2": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["ataque_temerario", "sentido_de_perigo"],
+            "espacos_magia": {}
+        },
+        "3": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["caminho_primitivo_frenesi"],
+            "espacos_magia": {}
+        },
+        "4": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["incremento_atributo"],
+            "espacos_magia": {}
+        },
+        "5": {
+            "bonus_proficiencia": 3,
+            "habilidades_desbloqueadas": ["ataque_extra", "movimento_rapido"],
+            "espacos_magia": {}
+        }
+    }
 }

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "furia_barbara",
+    "nome": "Fúria",
+    "descricao": "Entra numa fúria de batalha primitiva, ganhando resistência a dano físico e bónus no ataque.",
+    "tipo": "habilidade_classe",
+    "tipo_recarga": "longo",
+    "usos_max": 2,
+    "tipo_efeito": "status",
+    "dados_efeito": "furia"
+  },
+  {
+    "id": "retomar_folego",
+    "nome": "Retomar Fôlego",
+    "descricao": "Usas a tua resistência estamina para recuperar pontos de vida rapidamente no meio do combate.",
+    "tipo": "habilidade_classe",
+    "tipo_recarga": "curto",
+    "usos_max": 1,
+    "tipo_efeito": "cura",
+    "dados_efeito": "1d10"
+  }
+]

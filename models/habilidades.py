@@ -5,8 +5,10 @@ class Habilidade():
         nome: str,
         descricao: str,
         tipo: str,
-        tipo_recarga: str = "nenhum",  # "curto", "longo" ou "nenhum"
+        tipo_recarga: str = "nenhum",  
         usos_max: int = 0,
+        tipo_efeito: str = "", # "cura", "dano", "status"
+        dados_efeito: str = "" # "1d10", "furia", "cego"
     ):
         self.id = id_habilidade
         self.nome = nome
@@ -15,6 +17,9 @@ class Habilidade():
         self.tipo_recarga = tipo_recarga
         self.usos_max = usos_max
         self.usos_disponiveis = usos_max
+        
+        self.tipo_efeito = tipo_efeito
+        self.dados_efeito = dados_efeito
         
     def recarregar(self, tipo_descanso: str):
         """Restaura usos se o tipo de descanso for compatível."""
@@ -25,6 +30,46 @@ class Habilidade():
              self.usos_disponiveis = self.usos_max
         elif self.tipo_recarga == "longo" and tipo_descanso == "longo":
              self.usos_disponiveis = self.usos_max    
+             
+    def executar(self, usuario, alvo, expressao_rolagem_func):
+        """Método para habilidades não-mágicas (físicas ou de classe)"""
+        # 1. Validação de recursos (Usos)
+        if self.usos_max > 0 and self.usos_disponiveis <= 0:
+            print(f"{usuario.nome} esgotou os usos de {self.nome}! Precisa de um descanso {self.tipo_recarga}.")
+            return False
+
+        # 2. Consumo
+        if self.usos_max > 0:
+            self.usos_disponiveis -= 1
+            
+        print(f"\n{usuario.nome} utiliza a habilidade: {self.nome}!")
+        
+        # 3. Aplicação do Efeito Base
+        if self.tipo_efeito == "cura" and self.dados_efeito:
+            valor = expressao_rolagem_func(self.dados_efeito, "total")
+            alvo.curar(valor)
+        
+        elif self.tipo_efeito == "status":
+            # Adiciona o status (ex: "furia") à lista de status ativos do personagem
+            if self.dados_efeito not in usuario.status_ativo:
+                usuario.status_ativo.append(self.dados_efeito)
+                print(f"{usuario.nome} entra no estado: {self.dados_efeito.upper()}!")
+                
+        # (Se for dano direto, aplicaria aqui parecido com a cura)
+        return True
+
+    @classmethod
+    def do_dict(cls, dados: dict):
+        return cls(
+            id_habilidade=dados.get("id", "desconhecida"),
+            nome=dados.get("nome", "Habilidade Sem Nome"),
+            descricao=dados.get("descricao", ""),
+            tipo=dados.get("tipo", "habilidade_classe"),
+            tipo_recarga=dados.get("tipo_recarga", "nenhum"),
+            usos_max=int(dados.get("usos_max", 0)),
+            tipo_efeito=dados.get("tipo_efeito", ""),
+            dados_efeito=dados.get("dados_efeito", "")
+        )   
     
 class Magia(Habilidade):
 

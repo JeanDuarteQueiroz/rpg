@@ -23,8 +23,11 @@ def carregar_arquivos_json_da_pasta(subpasta: str) -> list[dict]:
     for arquivo in diretorio.glob("*.json"):
         try:
             with open(arquivo, "r", encoding="utf-8") as f:
-                dados = json.load(f)
-                lista_conteudo.append(dados)
+              dados = json.load(f)
+              if isinstance(dados, list):
+                  lista_conteudo.extend(dados) # Desempacota a lista de itens/magias!
+              elif isinstance(dados, dict):
+                  lista_conteudo.append(dados) # Adiciona o dicionário único
         except json.JSONDecodeError as erro:
             print(f"Erro ao ler JSON no arquivo {arquivo.name}: {erro}")
     lista_conteudo.sort(key=lambda item: item.get("nome", ""))

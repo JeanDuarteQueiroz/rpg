@@ -36,11 +36,32 @@ class Npc:
         }
 
         self.social = {
+            "geografia": social.get("geografia", {
+                "continente": "Valenor",
+                "regiao": "Regiao Desconhecida",
+                "tipo_habitat": "vila",
+                "nome_localidade": "Local Desconhecido",
+                "ponto_padrao": f"centro_{id_npc}"
+            }),
             "profissao": social.get("profissao", "desempregado"),
             "nivel_habilidade": social.get("habilidade", 1),
             "ambicao": social.get("ambicao", "sobreviver"),
             "faccao_lealdade": social.get("faccao", "nenhuma"),
+            # Mapeamento real dos nós de vivência do NPC
+            "locais": social.get("locais", {
+                "casa": f"casa_{self.id}",
+                "trabalho": f"trabalho_{self.id}",
+                "lazer": "taverna_local",
+                "refeicao": "taverna_local"
+            }),
+            # Rotinas que mudam conforme a estação do ano
+            "rotinas_por_estacao": social.get("rotinas_por_estacao", {})
         }
+        # Estado dinâmico para lidar com tragédias, luto ou alertas de perigo
+        self.social["estado_dinamico"] = social.get("estado_dinamico", {
+            "estado_ativo": None,  # Ex: "luto_profundo", "alerta_bandidos"
+            "sobrescrever_atividade": None
+        })
 
         self.rotina = social.get(
             "rotina",
@@ -80,6 +101,50 @@ class Npc:
         self.inventario = Inventario()
 
     # ----------------------------------------------------------------- #
+
+    def obter_local_atual(self, fase_atual: str, estacao_atual: str = "Primavera") -> str:
+        # 1. Validação genérica de estado crítico (Anula qualquer rotina!)
+        estado_critico = self.social.get("estado_dinamico", {})
+        atividade_forcada = estado_critico.get("sobrescrever_atividade")
+        
+        if atividade_forcada:
+            locais = self.social.get("locais", {})
+            if atividade_forcada in ("dormir", "casa"):
+                return locais.get("casa", f"casa_{self.id}")
+            elif atividade_forcada == "trabalhar":
+                return locais.get("trabalho", f"trabalho_{self.id}")
+            return atividade_forcada 
+
+        # 2. Verifica o Perfil Comportamental do NPC
+        tipo_rotina = self.social.get("tipo_rotina", "estatica")
+        
+        # PERFIL C: VIAJANTE (Ignora o dia/noite, move-se pelo itinerário)
+        if tipo_rotina == "transito":
+            itinerario = self.social.get("itinerario", [])
+            indice = self.social.get("indice_itinerario_atual", 0)
+            if itinerario and indice < len(itinerario):
+                return itinerario[indice]
+            return "estrada_desconhecida"
+            
+        # Puxa a rotina base (usada para perfis Estáticos e Patrulha)
+        rotinas_sazonais = self.social.get("rotinas_por_estacao", {})
+        rotina_ativa = rotinas_sazonais.get(estacao_atual, self.rotina)
+        atividade = rotina_ativa.get(fase_atual, "dormir")
+
+        # PERFIL B: PATRULHEIRO (A atividade já é o nó exato do mapa!)
+        if tipo_rotina == "patrulha":
+            return atividade
+
+        # PERFIL A: ESTÁTICO (Traduz a atividade genérica para um nó do mapa)
+        locais = self.social.get("locais", {})
+        if atividade in ("dormir", "casa"):
+            return locais.get("casa", f"casa_{self.id}")
+        elif atividade == "trabalhar":
+            return locais.get("trabalho", f"trabalho_{self.id}")
+        elif atividade in ("comer", "refeicao", "taverna"):
+            return locais.get("refeicao", "taverna_local")
+            
+        return atividade
 
     def modificador(self, atributo: str) -> int:
         valor_atributo = self.atributos.get(atributo, 10)
