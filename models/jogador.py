@@ -1,3 +1,5 @@
+from models.itens import Inventario
+
 class Jogador():
     
     def __init__(self, nome, especie, classe, antecedente, atributo=True):
@@ -18,6 +20,8 @@ class Jogador():
         for atributo, valor in self.bonus_atributos_antecedente.items():
             if atributo in self.atributos:
                 self.atributos[atributo] += valor  
+                
+        self.atributo_conjuracao = classe.get("atributo_conjuracao", "inteligencia")
         
     #--------------------------------------------------#     
     #-----------------| VIDA E XP |--------------------#
@@ -60,7 +64,7 @@ class Jogador():
         self.salvaguarda_atributo = set(classe.get("proficiencia_salvaguarda", []))
     #---------------------------------------------------#
     #------------------| INVENTARIO E EQUIPAMENTO |--------------------# 
-        self.armas = []
+        self.inventario = Inventario()
         
         self.arma_equipada = None
         
@@ -110,28 +114,28 @@ class Jogador():
       for hab in self.habilidades:
         hab.recarregar("curto")
 
-    #   # 3. Itens do inventário que possam ter cargas
-    #   for item in self.armas:
-    #     if hasattr(item, "recarregar"):
-    #       item.recarregar("curto")
+      for dados_item in self.inventario.itens.values():
+        item_obj = dados_item["objeto"]
+        if hasattr(item_obj, "recarregar"):
+            item_obj.recarregar("curto") # ou "longo"
 
-      print(f"{self.nome} realizou um descanso curto!")
+        print(f"{self.nome} realizou um descanso curto!")
 
     def descanso_longo(self):
-      """Restaura tudo ao máximo e notificar todos os componentes."""
-      self.hp_atual = self.hp_max
+        self.hp_atual = self.hp_max
 
-      for nivel, dados in self.espacos_magia.items():
-        dados["disponiveis"] = dados["total"]
+        for nivel, dados in self.espacos_magia.items():
+            dados["disponiveis"] = dados["total"]
 
-      for hab in self.habilidades:
-        hab.recarregar("longo")
+        for hab in self.habilidades:
+            hab.recarregar("longo")
 
-    #   for item in self.armas:
-    #     if hasattr(item, "recarregar"):
-    #       item.recarregar("longo")
+        for dados_item in self.inventario.itens.values():
+            item_obj = dados_item["objeto"]
+            if hasattr(item_obj, "recarregar"):
+                item_obj.recarregar("curto") # ou "longo" 
 
-      print(f"{self.nome} realizou um descanso longo. Recursos renovados!")
+        print(f"{self.nome} realizou um descanso longo. Recursos renovados!")
     
     def tem_espaco_magia(self, nivel: int) -> bool:
         """Apenas consulta se há espaço disponível para o nível solicitado."""
