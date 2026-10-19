@@ -2,12 +2,13 @@
   {
     "id": "furia_barbara",
     "nome": "Fúria",
-    "descricao": "Entra numa fúria de batalha primitiva, ganhando resistência a dano físico e bónus no ataque.",
-    "tipo": "habilidade_classe",
-    "tipo_recarga": "longo",
-    "usos_max": 2,
-    "tipo_efeito": "status",
-    "dados_efeito": "furia"
+    "tipo_efeito": "buff_temporario",
+    "dados_efeito": {
+      "resistencias_ganhas": ["concussao", "cortante", "perfurante"],
+      "bonus_dano_fisico": 2,
+      "vantagem_salvaguarda": ["forca"],
+      "duracao_turnos": 10
+    }
   },
   {
     "id": "retomar_folego",

@@ -361,3 +361,63 @@ class Npc:
             social=dados.get("social", {}),
             tags=dados.get("tags", []),
         )
+
+    def aplicar_status(self, id_status: str, efeitos: dict, duracao: int):
+        """Lê o dicionário do JSON e aplica os bónus na ficha."""
+        # Se já tiver o status, apenas renova a duração
+        if id_status in self.status_ativo:
+            self.status_ativo[id_status]["duracao_restante"] = duracao
+            return
+            
+        self.status_ativo[id_status] = {
+            "efeitos": efeitos,
+            "duracao_restante": duracao
+        }
+        
+        # 1. Injeta resistências
+        for res in efeitos.get("resistencias_ganhas", []):
+            self.resistencias.append(res)
+            
+        # 2. Injeta bónus de dano
+        self.bonus_dano_temporario += efeitos.get("bonus_dano_fisico", 0)
+        
+        # 3. Injeta bónus de CA (Armadura)
+        if "bonus_ca" in efeitos:
+            self.classe_armadura += efeitos["bonus_ca"]
+            
+        print(f"🔥 {self.nome} foi afetado por {id_status.replace('_', ' ').title()}!")
+
+    def remover_status(self, id_status: str):
+        """Reverte exatamente os bónus que foram dados."""
+        if id_status not in self.status_ativo:
+            return
+            
+        efeitos = self.status_ativo[id_status]["efeitos"]
+        
+        for res in efeitos.get("resistencias_ganhas", []):
+            if res in self.resistencias:
+                self.resistencias.remove(res)
+                
+        self.bonus_dano_temporario -= efeitos.get("bonus_dano_fisico", 0)
+        
+        if "bonus_ca" in efeitos:
+            self.classe_armadura -= efeitos["bonus_ca"]
+            
+        del self.status_ativo[id_status]
+        print(f"💨 O efeito de {id_status.replace('_', ' ').title()} sobre {self.nome} dissipou-se.")
+
+    def processar_turnos_status(self):
+        """Chamado pelo Motor de Combate no final do turno deste personagem."""
+        # Copiamos as chaves para uma lista para podermos apagar itens do dicionário durante o loop sem erro
+        status_para_verificar = list(self.status_ativo.keys())
+        
+        for id_status in status_para_verificar:
+            duracao = self.status_ativo[id_status]["duracao_restante"]
+            
+            # Duração -1 pode significar "infinito" (ex: maldições que só saem com magia)
+            if duracao > 0:
+                self.status_ativo[id_status]["duracao_restante"] -= 1
+                
+                # Se o tempo acabou, a própria ficha limpa o status!
+                if self.status_ativo[id_status]["duracao_restante"] <= 0:
+                    self.remover_status(id_status)

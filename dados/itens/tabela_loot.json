@@ -1,0 +1,40 @@
+{
+    "tabelas": {
+        "bau_tutorial_cabana": {
+            "descricao": "Loot fixo para a cabana inicial do tutorial",
+            "moedas_min": 10,
+            "moedas_max": 15,
+            "itens_garantidos": [
+                { "id_item": "racao_viagem", "qtd_min": 2, "qtd_max": 2 },
+                { "id_item": "pocao_cura_menor", "qtd_min": 1, "qtd_max": 1 },
+                { "id_item": "pe_de_cabra", "qtd_min": 1, "qtd_max": 1 }
+            ],
+            "itens_sorteados": {}
+        },
+        "loot_bandido_estrada": {
+            "descricao": "Loot gerado ao derrotar salteadores nas rotas",
+            "moedas_min": 2,
+            "moedas_max": 10,
+            "itens_garantidos": [],
+            "itens_sorteados": {
+                "consumiveis": {
+                    "chance_categoria": 50,
+                    "rolagens_de_saque": 1,
+                    "opcoes": [
+                        { "id_item": "racao_viagem", "peso_base": 60, "qtd_min": 1, "qtd_max": 1 },
+                        { "id_item": "rum_forte", "peso_base": 15, "qtd_min": 1, "qtd_max": 1 }
+                    ]
+                },
+                "tranqueiras": {
+                    "chance_categoria": 80,
+                    "rolagens_de_saque": 1,
+                    "opcoes": [
+                        { "id_item": "nada", "peso_base": 50, "qtd_min": 0, "qtd_max": 0 },
+                        { "id_item": "faca_enferrujada", "peso_base": 30, "qtd_min": 1, "qtd_max": 1 },
+                        { "id_item": "dente_de_ouro", "peso_base": 20, "qtd_min": 1, "qtd_max": 1 }
+                    ]
+                }
+            }
+        }
+    }
+}

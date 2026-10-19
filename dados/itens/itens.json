@@ -1,0 +1,58 @@
+[
+    {
+        "id": "racao_viagem",
+        "nome": "Ração de Viagem",
+        "descricao": "Alimentos secos e curados. Fundamental para acampamentos.",
+        "peso": 1.0,
+        "preco": 5.0,
+        "tipo_geral": "consumivel"
+    },
+    {
+        "id": "pocao_cura_menor",
+        "nome": "Poção de Cura Menor",
+        "descricao": "Um líquido vermelho que cheira a morangos e ferro. Recupera pontos de vida (2d4+2).",
+        "peso": 0.25,
+        "preco": 50.0,
+        "tipo_geral": "consumivel"
+    },
+    {
+        "id": "rum_forte",
+        "nome": "Rum Grog",
+        "descricao": "Um destilado que queima a garganta e aquece o corpo. Excelente no inverno.",
+        "peso": 0.5,
+        "preco": 10.0,
+        "tipo_geral": "consumivel"
+    },
+    {
+        "id": "pe_de_cabra",
+        "nome": "Pé de Cabra",
+        "descricao": "Uma ferramenta de ferro resistente, ideal para arrombar portas ou baús teimosos.",
+        "peso": 2.5,
+        "preco": 20.0,
+        "tipo_geral": "ferramenta"
+    },
+    {
+        "id": "corda_velha",
+        "nome": "Corda de Cânhamo (15m)",
+        "descricao": "Uma corda gasta, mas confiável para travessias ou escaladas básicas.",
+        "peso": 5.0,
+        "preco": 10.0,
+        "tipo_geral": "ferramenta"
+    },
+    {
+        "id": "dente_de_ouro",
+        "nome": "Dente de Ouro",
+        "descricao": "Um dente humano revestido de ouro maciço. Tem o seu valor no mercado negro.",
+        "peso": 0.05,
+        "preco": 15.0,
+        "tipo_geral": "tranqueira"
+    },
+    {
+        "id": "nada",
+        "nome": "Nada",
+        "descricao": "Vazio absoluto.",
+        "peso": 0.0,
+        "preco": 0.0,
+        "tipo_geral": "nulo"
+    }
+]

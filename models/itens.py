@@ -9,6 +9,10 @@ class Item():
         self.peso = peso
         self.preco = preco
     
+    def usar(self, *args):
+        print(f"O item '{self.nome}' não pode ser consumido diretamente. Tenta usá-lo através das opções do ambiente!")
+        return False
+    
 class Arma(Item):
     
     def __init__(
@@ -231,3 +235,47 @@ class Inventario():
                 peso_total_item = obj.peso * qtd
                 print(f"[{qtd}x] {obj.nome.ljust(20)} | Peso: {peso_total_item:.1f} kg")
         print("-" * 18)
+        
+class Consumivel(Item):
+    def __init__(
+        self, id_item, nome, descricao, peso, preco,
+        tipo_efeito: str, dados_efeito: str, bonus_fixo: int = 0, propriedades: list = None
+    ):
+        super().__init__(id_item, nome, descricao, peso, preco)
+        self.tipo_efeito = tipo_efeito
+        self.dados_efeito = dados_efeito
+        self.bonus_fixo = bonus_fixo
+        self.propriedades = set(propriedades or [])
+
+    @classmethod
+    def do_dict(cls, dados: dict):
+        return cls(
+            id_item=dados.get("id", "Desconhecido"),
+            nome=dados.get("nome", "Consumível Sem Nome"),
+            descricao=dados.get("descricao", ""),
+            peso=dados.get("peso", 0.0),
+            preco=dados.get("preco", 0.0),
+            tipo_efeito=dados.get("tipo_efeito", ""),
+            dados_efeito=dados.get("dados_efeito", "0"),
+            bonus_fixo=dados.get("bonus_fixo", 0),
+            propriedades=dados.get("propriedades", [])
+        )
+
+    def usar(self, usuario, alvo, expressao_rolagem_func):
+        print(f"\n{usuario.nome} utiliza {self.nome} em {alvo.nome}!")
+        
+        # 1. Aplica o efeito (Cura ou Dano)
+        if self.tipo_efeito == "cura":
+            valor_dado = expressao_rolagem_func(self.dados_efeito, "total") if self.dados_efeito != "0" else 0
+            cura_total = valor_dado + self.bonus_fixo
+            alvo.curar(cura_total)
+            
+        elif self.tipo_efeito == "dano":
+            # Ex: Um frasco de ácido
+            dano_total = expressao_rolagem_func(self.dados_efeito, "total") + self.bonus_fixo
+            # Assumimos dano "acido" ou "fogo" lendo do JSON no futuro
+            alvo.receber_dano(dano_total, "acido") 
+
+        # 2. Retorna True para avisar ao jogo que a ação foi concluída com sucesso
+        # (Para o jogo saber que deve remover o item do inventário do usuário)
+        return True

@@ -54,7 +54,24 @@ class Habilidade():
             if self.dados_efeito not in usuario.status_ativo:
                 usuario.status_ativo.append(self.dados_efeito)
                 print(f"{usuario.nome} entra no estado: {self.dados_efeito.upper()}!")
-                
+        
+        elif self.tipo_efeito == "buff_temporario":
+            # Passa o ID da habilidade e o dicionário de efeitos para o alvo/usuário
+            usuario.aplicar_buff(self.id, self.dados_efeito)
+            
+        elif self.tipo_efeito == "aplicar_status":
+            # O JSON deve dizer quanto tempo dura. Ex: 10 turnos
+            # Se for uma magia lançada no inimigo (alvo), aplica no alvo. Se for buff, aplica no usuario.
+            alvo_do_efeito = alvo if alvo else usuario
+            duracao = self.dados_efeito.get("duracao_turnos", 1)
+            
+            alvo_do_efeito.aplicar_status(self.id, self.dados_efeito, duracao)
+            
+        elif self.tipo_efeito == "remover_status":
+            # dados_efeito aqui seria uma string. Ex: "envenenado"
+            alvo.remover_status(self.dados_efeito)
+            print(f"✨ {usuario.nome} curou o estado '{self.dados_efeito}' de {alvo.nome}!")
+            
         # (Se for dano direto, aplicaria aqui parecido com a cura)
         return True
 
@@ -72,42 +89,41 @@ class Habilidade():
         )   
     
 class Magia(Habilidade):
-
-  def __init__(
-      self,
-      id_habilidade: str,
-      nome: str,
-      descricao: str,
-      tipo: str,
-      nivel: int,
-      escola: str,
-      tipo_resolucao: str,
-      atributo_salvaguarda: str = None,
-      dados_efeito: str = "",
-      tipo_dano: str = "",
-  ):
-    # Passa tipo_recarga="nenhum" e usos_max=0 para a classe-mãe
-    super().__init__(
-        id_habilidade,
-        nome,
-        descricao,
-        tipo,
-        tipo_recarga="nenhum",
-        usos_max=0,
-    )
-    self.nivel = nivel  #
-    self.escola = escola  #
-    self.tipo_resolucao = tipo_resolucao 
-    self.atributo_salvaguarda = atributo_salvaguarda  
-    self.dados_efeito = dados_efeito  
-    self.tipo_dano = tipo_dano 
+    def __init__(
+        self,
+        id_habilidade: str,
+        nome: str,
+        descricao: str,
+        tipo: str,
+        nivel: int,
+        escola: str,
+        tipo_resolucao: str,
+        atributo_salvaguarda: str = None,
+        dados_efeito: str = "",
+        tipo_dano: str = "",
+    ):
+        # Passa tipo_recarga="nenhum" e usos_max=0 para a classe-mãe
+        super().__init__(
+            id_habilidade,
+            nome,
+            descricao,
+            tipo,
+            tipo_recarga="nenhum",
+            usos_max=0,
+        )
+        self.nivel = nivel
+        self.escola = escola
+        self.tipo_resolucao = tipo_resolucao 
+        self.atributo_salvaguarda = atributo_salvaguarda  
+        self.dados_efeito = dados_efeito  
+        self.tipo_dano = tipo_dano 
 
     @classmethod
     def do_dict(cls, dados: dict):
         return cls(
             id_habilidade=dados.get("id", "desconhecida"),
-            nome=dados.get("nome", "Habilidade Sem Nome"),
-            descricao=dados.get("descricao", "Uma habilidade"),
+            nome=dados.get("nome", "Magia Sem Nome"),
+            descricao=dados.get("descricao", "Uma magia"),
             tipo=dados.get("tipo", "magia"),
             nivel=int(dados.get("nivel", 0)),
             escola=dados.get("escola", ""),
@@ -176,3 +192,16 @@ class Magia(Habilidade):
             else:
                 print(f"Falha na salvaguarda! {alvo.nome} sofreu {dano} de dano {self.tipo_dano}.")
                 alvo.receber_dano(dano, self.tipo_dano)
+
+        elif self.tipo_efeito == "aplicar_status":
+            # O JSON deve dizer quanto tempo dura. Ex: 10 turnos
+            # Se for uma magia lançada no inimigo (alvo), aplica no alvo. Se for buff, aplica no usuario.
+            alvo_do_efeito = alvo if alvo else conjurador
+            duracao = self.dados_efeito.get("duracao_turnos", 1)
+            
+            alvo_do_efeito.aplicar_status(self.id, self.dados_efeito, duracao)
+            
+        elif self.tipo_efeito == "remover_status":
+            # dados_efeito aqui seria uma string. Ex: "envenenado"
+            alvo.remover_status(self.dados_efeito)
+            print(f"✨ {conjurador.nome} curou o estado '{self.dados_efeito}' de {alvo.nome}!")
