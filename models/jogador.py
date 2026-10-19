@@ -4,7 +4,8 @@ from core.banco_dados import BancoDeDados
 class Jogador():
     
     def __init__(self, nome, especie, classe, antecedente, atributo=True):
-    #-----------------| EXIBIÇÃO |--------------------#      
+    #-----------------| EXIBIÇÃO |--------------------#    
+        self.id = "jogador"  
         self.nome = nome # NOME JOGADOR
         self.especie = especie.get("nome", "Desconhecido") # NOME ESPECIE
         self.classe = classe.get("nome", "Desconhecido") # NOME CLASSE
@@ -36,6 +37,7 @@ class Jogador():
         
         self.nivel = 1 #-------| NIVEL 
         self.xp = 0 #-------| XP
+        self.xp_necessario = self.calcular_xp_prox_nivel()
         
     #---------------------------------------------------#
     #-------| PROFICIENCIA E PERCEPÇÃO PASSIVA E CA |-------#            
@@ -422,3 +424,22 @@ class Jogador():
                 # Se o tempo acabou, a própria ficha limpa o status!
                 if self.status_ativo[id_status]["duracao_restante"] <= 0:
                     self.remover_status(id_status)
+
+    def calcular_xp_prox_nivel(self) -> int:
+        """Tabela de XP baseada nas regras clássicas (D&D 5e)."""
+        tabela_xp = {
+            1: 300, 2: 900, 3: 2700, 4: 6500, 5: 14000,
+            6: 23000, 7: 34000, 8: 48000, 9: 64000, 10: 85000
+        }
+        # Se passar do nível 10, exige um valor fixo absurdo ou calcula progressão
+        return tabela_xp.get(self.nivel, self.nivel * 10000)
+
+    def ganhar_xp(self, quantidade: int):
+        if quantidade <= 0: return
+        self.xp += quantidade
+        print(f"🌟 Recebeste {quantidade} XP! (Total: {self.xp}/{self.xp_necessario})")
+        
+        # Usa um while caso o jogador ganhe muito XP de uma vez e suba 2 níveis seguidos!
+        while self.xp >= self.xp_necessario:
+            self.subir_nivel()
+            self.xp_necessario = self.calcular_xp_prox_nivel()

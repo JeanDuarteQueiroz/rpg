@@ -13,6 +13,8 @@ class Npc:
         psique: dict,
         social: dict,
         tags: list = None,
+        xp_recompensa: int = 10,
+        tabela_loot: str = "loot_vazio"
     ):
         self.id = id_npc
         self.nome = nome
@@ -23,6 +25,9 @@ class Npc:
         self.atributos = atributos
 
         self.tags = set(tags or [])
+        
+        self.xp_recompensa = xp_recompensa
+        self.tabela_loot = tabela_loot
 
         # ----------------------------------------------------------------- #
         # ----------| PSIQUE, SOCIAL, ROTINA, RELACIONAMENTO |------------- #
@@ -96,9 +101,15 @@ class Npc:
         self.agressivo = False
         self.fugir = False
         self.morte = False
+        
+        self.status_ativo = {}            
+        self.bonus_dano_temporario = 0    
 
         # ------------------------| INVENTARIO |--------------------------- #
         self.inventario = Inventario()
+        
+        self.xp_recompensa = 50 
+        self.tabela_loot = "loot_vazio"
 
     # ----------------------------------------------------------------- #
 
@@ -350,7 +361,8 @@ class Npc:
 
     @classmethod
     def do_dict(cls, dados: dict):
-        return cls(
+        # Cria a instância
+        instancia = cls(
             id_npc=dados.get("id", "npc_desconhecido"),
             nome=dados.get("nome", "Desconhecido"),
             descricao=dados.get("descricao", ""),
@@ -359,8 +371,13 @@ class Npc:
             atributos=dados.get("atributos", {}),
             psique=dados.get("psique", {}),
             social=dados.get("social", {}),
-            tags=dados.get("tags", []),
+            tags=dados.get("tags", [])
         )
+
+        instancia.xp_recompensa = int(dados.get("xp_recompensa", 50))
+        instancia.tabela_loot = dados.get("tabela_loot", "loot_vazio")
+        
+        return instancia
 
     def aplicar_status(self, id_status: str, efeitos: dict, duracao: int):
         """Lê o dicionário do JSON e aplica os bónus na ficha."""
