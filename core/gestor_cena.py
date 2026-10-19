@@ -231,9 +231,15 @@ class GestorCena:
                 ids_para_transferir = list(corpo.inventario.itens.keys())
                 for id_item in ids_para_transferir:
                     qtd = corpo.inventario.itens[id_item]["quantidade"]
+                    # 1. Guardamos o nome do item ANTES de o apagar do corpo
+                    nome_item = corpo.inventario.itens[id_item]["objeto"].nome 
+                    
+                    # 2. Fazemos a transferência
                     sucesso = corpo.inventario.transferir_item(id_item, qtd, jogador.inventario)
+                    
+                    # 3. Imprimimos o nome guardado!
                     if sucesso:
-                        print(f"📦 Pegaste {qtd}x {corpo.inventario.itens[id_item]['objeto'].nome}.")
+                        print(f"📦 Pegaste {qtd}x {nome_item}.")
                         
             else:
                 try:

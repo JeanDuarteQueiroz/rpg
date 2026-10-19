@@ -198,7 +198,7 @@ class Jogador():
         self.hp_atual = min(self.hp_max, self.hp_atual + quantidade) 
         print(f"O {self.nome} curou {quantidade} pontos de vida!")
          
-    def receber_dano(self, quantidade: int, tipo_dano: str = "concussao", efeito = None) -> int:
+    def receber_dano(self, quantidade: int, tipo_dano: str = "concussao", causador: str = "desconhecido",efeito = None) -> int:
         if quantidade <= 0:
             return 0
         
