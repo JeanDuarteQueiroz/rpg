@@ -98,6 +98,8 @@ class GestorCena:
         opcoes = {}
         contador = 1
         
+        opcoes["0"] = {"texto": "⛺ Acampamento / Menu do Sistema", "acao": "menu_sistema", "custo": 0}
+        
         # --- AÇÕES LIVRES ---
         opcoes[str(contador)] = {"texto": "Observar / Analisar o ambiente", "acao": "observar", "custo": 1}
         contador += 1

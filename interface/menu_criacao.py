@@ -1,19 +1,20 @@
 from core.dados import rolar_dados_atributos
+from core.utilitario import limpar_tela
 
 #------------------- OUTROS -------------------#
 def sortear_atributos(classe_jogador, nome_jogador="Desconhecido"):
-    print(f"\n {nome_jogador}, você escolheu a {classe_jogador['nome']} como Classe! E agora precisa decidir...\n")
-    print("IMPORTANTE!")
+    print(f"\n{nome_jogador}, você escolheu # {classe_jogador['nome']} # como Classe! E agora precisa decidir...\n")
     print("Deseja usar os atributos padrão para sua classe ou sortear nos dados?\n")
     
     while True:
         # Ponto e vírgula removido no final
-        escolha = str(input("Digite P - Padrão, ou S - Sortear:  ")).upper().strip()
+        escolha = str(input("Digite:  P - Padrão, ou S - Sortear:  ")).upper().strip()
         if escolha == 'P':
             return True # Retorna diretamente o booleano esperado pelo Jogador
         elif escolha == 'S':
+            limpar_tela()
             atributos_rolados = rolar_dados_atributos()
-            print(f"Seus atributos sorteados são: {atributos_rolados}")
+            print(f"\nSeus atributos sorteados são: {atributos_rolados}")
             atributos_finais = definir_atributos_manual(atributos_rolados) 
             return atributos_finais
 
@@ -45,7 +46,7 @@ def exibir_menu_especies(lista_especies, nome_jogador):
     print(" ESPECIES DISPONÍVEIS ".center(60, "-"))
     print()
     
-    print(f" {'ESPECIE':<20} {'BONUS ATRIBUTO':<25} {'PERICIAS':<30}")
+    print(f" {'ESPECIE'.center(60)}")
     for numero, dados in enumerate(lista_especies, start=1):
         # Aspas simples nas chaves do dicionário dentro do f-string!
         print(f" {numero}. {dados['nome']} - [{dados.get('descricao', '')}]")
@@ -92,7 +93,7 @@ def escolher_classe(lista_classes):
 def exibir_menu_antecedentes(antecedentes, nome_jogador="teste"):
     print("=" * 60)
     print(f"Ok {nome_jogador}!".center(60))
-    print("última escolha!, escolha o 'ANTECEDENTE' do seu personagem!".center(60))
+    print("Última escolha!, escolha o 'ANTECEDENTE' do seu personagem!".center(60))
     print("=" * 60)
     print()
 

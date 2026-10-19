@@ -16,5 +16,35 @@
     "proficiencia_armas": ["simples", "marciais"],
     "proficiencia_salvaguarda":["forca", "constituicao"],
     "proficiencia_armadura":["Leve", "Media", "pesada"],
-    "proficiencia_escudo": true
+    "proficiencia_escudo": true,
+
+    "progressao_nivel": {
+        "1": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["estilo_luta", "recuperar_folego"],
+            "espacos_magia": {}
+        },
+        "2": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["mente_tatica", "surto_de_acao"],
+            "espacos_magia": {}
+        },
+        "3": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["subclasse_guerreiro"],
+            "espacos_magia": {}
+        },
+        "4": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["incremento_atributo"],
+            "espacos_magia": {}
+        },
+        "5": {
+            "bonus_proficiencia": 3,
+            "habilidades_desbloqueadas": ["ataque_extra", "ajuste_tatico"],
+            "espacos_magia": {}
+        }
+    }
+
+
 }

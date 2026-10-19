@@ -16,5 +16,47 @@
     "proficiencia_armas": ["simples"],
     "proficiencia_salvaguarda":["sabedoria", "carisma"],
     "proficiencia_armadura":["Leve", "Media"],
-    "proficiencia_escudo": true
+    "proficiencia_escudo": true,
+    
+    "progressao_nivel": {
+        "1": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["conjuracao", "ordem_divina"],
+            "espacos_magia": {
+              "1": {"total": 2, "disponiveis": 2}
+            }
+        },
+        "2": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["canalizar_divindade"],
+            "espacos_magia": {
+              "1": {"total": 3, "disponiveis": 3}
+            }
+        },
+        "3": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["subclasse_clerigo"],
+            "espacos_magia": {
+              "1": {"total": 4, "disponiveis": 4},
+              "2": {"total": 2, "disponiveis": 2}
+            }
+        },
+        "4": {
+            "bonus_proficiencia": 2,
+            "habilidades_desbloqueadas": ["incremento_atributo"],
+            "espacos_magia": {
+              "1": {"total": 4, "disponiveis": 4},
+              "2": {"total": 3, "disponiveis": 3}
+            }
+        },
+        "5": {
+            "bonus_proficiencia": 3,
+            "habilidades_desbloqueadas": ["fulminar_mortos_vivos"],
+            "espacos_magia": {
+              "1": {"total": 4, "disponiveis": 4},
+              "2": {"total": 3, "disponiveis": 3},
+              "3": {"total": 2, "disponiveis": 2}
+            }
+        }
+  }
 }

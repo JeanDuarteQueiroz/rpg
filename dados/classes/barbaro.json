@@ -26,7 +26,7 @@
         },
         "2": {
             "bonus_proficiencia": 2,
-            "habilidades_desbloqueadas": ["ataque_temerario", "sentido_de_perigo"],
+            "habilidades_desbloqueadas": ["ataque_imprudente", "sentido_de_perigo"],
             "espacos_magia": {}
         },
         "3": {

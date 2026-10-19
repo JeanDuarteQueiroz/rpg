@@ -18,7 +18,7 @@ class BancoDeDados:
     @classmethod
     def inicializar(cls):
         """Carrega todos os JSONs para a memória do jogo na inicialização."""
-        print("[SISTEMA] Inicializando Banco de Dados...")
+        # print("[SISTEMA] Inicializando Banco de Dados...")
         
         # 1. Carregar Dados de Criação
         for dados in carregar_arquivos_json_da_pasta("especies"):
