@@ -1,0 +1,118 @@
+{
+    "despertar_na_clareira": {
+        "id": "despertar_na_clareira",
+        "tipo": "historia",
+        "gatilho": {
+            "local": "clareira_floresta",
+            "chance_disparo": 100 
+        },
+        "requisitos": {
+            "evento_bloqueado": "despertar_na_clareira_concluido"
+        },
+        "nos": {
+            "inicio": {
+                "narrador": " Você desperta com gosto de terra na boca e vozes ásperas ao redor. \n\n Está caído sob os destroços do que um dia foi uma carroça, no centro de uma clareira aberta à força, no meio da floresta.\n\n Árvores foram arrancadas ou partidas ao meio. A terra está revolvida, e uma pequena cratera marca o centro da destruição. Apesar do impacto, você parece inteiro. Por enquanto.\n\n Perto da cratera, duas pequenas criaturas verdes discutem aos gritos. Uma delas gesticula com as mãos, a outra aponta para o buraco.\n\n As vozes parecem rosnados, mas há algo de familiar no ritmo da discussão — como se aquele fosse apenas o jeito normal delas conversarem.",
+                "opcoes": [
+                {   "texto": "Tentar escutar o que elas dizem.",
+                    "acao": "teste_atributo",
+                    "atributo": "sabedoria",
+                    "cd": 12,
+                    "destino_falha": "escutar_falha",
+                    "destino_sucesso": "escutar_sucesso"
+                },
+                {
+                    "texto": "Sair de baixo dos destroços.",
+                    "acao": "teste_atributo",
+                    "atributo": "destreza",
+                    "cd": "12",
+                    "destino_falha": "sair_destrocos_falha",
+                    "destino_sucesso": "sair_destrocos_sucesso"
+                }
+                ]
+            },
+            "escutar_falha": {
+                "narrador": " Você se ajeita em uma posição para tentar ouvir melhor o que as criaturas falam. Prende a respiração e tenta separar palavras em meio aos gritos e rosnados. \n\n Não adianta. As criaturas falam misturando palavras de uma língua que você não compreende.\n\n O máximo que você compreende, são sons ou palavras que se repetem: \n 'Ghkuik' e algo que soa como 'Pedra que Canta'.\n\n As criaturas continuam discutindo, sem perceber sua presença.",
+                "opcoes": [
+                {   
+                    "texto": "Sair de baixo dos destroços.",
+                    "acao": "teste_atributo",
+                    "atributo": "destreza",
+                    "cd": "15",
+                    "destino_falha": "sair_destrocos_falha",
+                    "destino_sucesso": "sair_destrocos_sucesso"
+                }
+                ]
+            },
+            "escutar_sucesso": {
+                "narrador": " Você se concentra nos sons e, pouco a pouco, consegue formar frases:\n\n “Grot! Eu decidi! Falar pro Yark sobre a 'Pedra que Canta', Zog off!” \n “Não é justo! Eu encontrei 'Pedra que Canta'! Eu escutei grande barulho! Skag!!”\n\n As criaturas recomeçam a discussão em uma língua que você não entende. Você percebe que uma delas — possui a marca de um dente branco na mão.",
+                "opcoes": [
+                    {
+                    "texto": "Sair de baixo dos destroços.",
+                    "acao": "teste_atributo",
+                    "atributo": "destreza",
+                    "cd": "12",
+                    "destino_falha": "sair_destrocos_falha",
+                    "destino_sucesso": "sair_destrocos_sucesso" 
+                    }
+                ]
+            },
+            "sair_destrocos_falha": {
+                "narrador": " Você tenta se espremer para fora, mas uma madeira da carroça tranca contra uma pedra e lasca produzindo um estalo alto.\n\n As duas criaturas interrompem a discussão. Viram-se na sua direção sacando as armas. São lâminas curtas e irregulares, feitas de um metal escuro.\n\n Elas se aproximam de ti, cautelosas. Nenhuma ataca, mas ambas rosnam apontando pra ti, você não compreende.",
+                "opcoes": [
+                    {
+                        "texto": "Levantar as mãos e tentar mostrar que não oferece perigo.",
+                        "acao": "avancar_no",
+                        "destino": "primeiro_encontro_goblin"
+                    },
+                    {
+                        "texto": "Tentar correr mata a dentro desviando de todos os destroços!",
+                        "acao": "teste_pericia",
+                        "pericia": "acrobacia",
+                        "atributo_base": "destreza",
+                        "cd": 15,
+                        "destino_falha": "correr_falha",
+                        "destino_sucesso": "correr_sucesso"
+                    },
+                    {
+                        "texto": "[Percepção]: Avaliar rapidamente o ambiente em busca de uma vantagem.",
+                        "acao": "teste_pericia",
+                        "pericia": "percepcao",
+                        "atributo_base": "sabedoria",
+                        "cd": 13,
+                        "destino_falha": "avaliar_vantagem_falha",
+                        "destino_sucesso": "avaliar_vantagem_sucesso"
+                    },
+                    {
+                        "texto": "[Intimidar]: 'Se afastem! Vocês não vão gostar de lutar comigo!'",
+                        "acao": "teste_pericia",
+                        "atributo_base": "carisma",
+                        "cd": 15,
+                        "destino_falha": "intimidar_falha",
+                        "destino_sucesso": "intimidar_sucesso"
+                    }
+                ]
+            },
+            "sair_destrocos_sucesso": {
+                "narrador": " Você consegue se organizar e sair de baixo dos destroços sem fazer barulho. A poucos metros, os dois goblins continuam discutindo perto da borda da cratera. Um cutuca algo lá dentro com uma lança; o outro remexe uma bolsa no chão. Nenhum deles parece ter notado você.",
+                "opcoes": [
+                    {
+                        "req_percepcao_passiva": 14,
+                        "texto": "[Percepção] Você nota uma arma jogada no chão próximo aos destroços. Pegá-la",
+                        "acao": "avancar_no",
+                        "alterar_mundo_estado": {
+                            "equipamaneto_inicial_equipado": true
+                        },
+                        "destino": ""
+                    },
+                    {
+                        "texto": " [Furtividade] Se abaixar e ir mais próximo da cratera e das criaturas." ,
+                        "acao": "teste_pericia",
+                        "pericia": "furtividade",
+                        "cd": 15,
+                        "destino_falha": ""
+                    }
+                ]
+            }
+        }
+    }
+}
