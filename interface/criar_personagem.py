@@ -67,11 +67,8 @@ def criar_ficha_jogador():
           
     sleep(2)    
     limpar_tela()
-    
-    print("Seja bem vindo ao: ")
-    sleep(2)
+
     nome_rpg()
-    
     
     # Podes devolver o jogador1 no fim se o quiseres usar noutras partes do código
     return jogador1

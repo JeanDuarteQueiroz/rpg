@@ -86,12 +86,12 @@ def iniciar_jogo():
     jogador = criar_ficha_jogador()
     
     # Injeção da primeira missão no Diário!
-    jogador.diario.adicionar_missao(
-        id_missao="prologo_valenor", 
-        nome="Um Mundo Desconhecido", 
-        etapa_inicial="Explorar os arredores e encontrar um local seguro.", 
-        tipo="principal"
-    )
+    # jogador.diario.adicionar_missao(
+    #     id_missao="prologo_valenor", 
+    #     nome="Um Mundo Desconhecido", 
+    #     etapa_inicial="Explorar os arredores e encontrar um local seguro.", 
+    #     tipo="principal"
+    # )
 
     # Define o local inicial exato do jogador
     jogador.local_atual = "cena_inicial"

@@ -36,6 +36,7 @@ def espera_jogador():
     input("Pressione [ENTER] para continuar...")
     
 def nome_rpg():
+    digitar("Seja bem-vindo ao...")
     print(
         '''
         
